@@ -185,7 +185,27 @@ const App = () => {
                 <th></th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.cropName}>
+                  <td>{order.cropName}</td>
+                  <td>{order.datePlanted}</td>
+                  <td>{order.growthStage}</td>
+                  <td
+                    className={
+                      order.condition === "Good"
+                        ? "danger"
+                        : order.condition === "Perfect"
+                        ? "primary"
+                        : ""
+                    }
+                  >
+                    {order.condition}
+                  </td>
+                  <td className="primary">Details</td>
+                </tr>
+              ))}
+            </tbody>
           </table>
           <a href="#">Show All</a>
         </div>
