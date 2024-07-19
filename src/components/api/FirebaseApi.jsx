@@ -9,7 +9,7 @@ export function DashboardProvider({ children }) {
   // State variable to store data
   let [user, setUser] = useState(null);
   let [users, setUsers] = useState(null);
-  let [events, setEvents] = useState(null);
+  let [messages, setMessages] = useState(null);
   let [loading, setLoading] = useState(true);
 
   // Function to fetch user data from Firestore
@@ -36,20 +36,20 @@ export function DashboardProvider({ children }) {
     setUsers(usersList);
   }
 
-  // Function to fetch events data from Firestore
-  async function getEvents() {
-    const eventsCollection = collection(db, "Events");
-    const eventsSnapshot = await getDocs(eventsCollection);
-    const eventsList = eventsSnapshot.docs.map((doc) => ({
+  // Function to fetch messages data from Firestore
+  async function getMessages() {
+    const messagesCollection = collection(db, "Messages");
+    const messagesSnapshot = await getDocs(messagesCollection);
+    const messagesList = messagesSnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
-    setEvents(eventsList);
+    setMessages(messagesList);
   }
 
   // Fetch users and events data when the component mounts
   useEffect(() => {
-    Promise.all([getUser(), getUsers(), getEvents()]).then(() => {
+    Promise.all([getUser(), getUsers(), getMessages()]).then(() => {
       console.log("Data fetched successfully");
       setLoading(false);
     });
@@ -63,8 +63,8 @@ export function DashboardProvider({ children }) {
         setUser,
         users,
         setUsers,
-        events,
-        setEvents,
+        messages,
+        setMessages,
         loading,
         setLoading,
       }}

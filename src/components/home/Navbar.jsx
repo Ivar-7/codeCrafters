@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <Router>
       <nav className="navbar navbar-expand-lg justify-content-center fixed-top">
-        <div className="container-fluid justify-content-center">
+        <div className="container-fluid">
           <button
             className="navbar-toggler"
             type="button"
