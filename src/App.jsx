@@ -210,6 +210,30 @@ const App = () => {
           <a href="#">Show All</a>
         </div>
       </main>
+
+      <div className="right-section">
+        <div className="nav">
+          <button id="menu-btn">
+            <span className="material-icons-sharp">menu</span>
+          </button>
+          <div className="dark-mode">
+            <span className="material-icons-sharp active">light_mode</span>
+            <span className="material-icons-sharp">dark_mode</span>
+          </div>
+
+          <div className="profile">
+            <div className="info">
+              <p>
+                Hey, <b>Reza</b>
+              </p>
+              <small className="text-muted">Admin</small>
+            </div>
+            <div className="profile-photo">
+              <img src="images/profile-1.jpeg" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -379,8 +379,13 @@ main .crop-management a{
     color: var(--color-primary);
 }
 
-.right-section{
+.right-section {
+    position: sticky;
+    right: 1cm;
     margin-top: 1.4rem;
+    z-index: 100;
+    overflow-y: auto;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
 }
 
 .right-section .nav{
