@@ -1,8 +1,8 @@
 import React from "react";
 
-const Navbar = ({ closeSidebar, isSidebarOpen }) => {
+const Navbar = ({ isSidebarOpen }) => {
   return (
-    <aside style={{ display: isSidebarOpen ? "block" : "" }}>
+    <aside style={{ display: isSidebarOpen ? "block" : "none" }}>
       <div className="toggle">
         <div className="logo">
           <img src="images/logo.png" />
@@ -11,9 +11,7 @@ const Navbar = ({ closeSidebar, isSidebarOpen }) => {
           </h2>
         </div>
         <div className="close" id="close-btn">
-          <span className="material-icons-sharp" onClick={() => closeSidebar()}>
-            close
-          </span>
+          <span className="material-icons-sharp">close</span>
         </div>
       </div>
 

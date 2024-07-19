@@ -21,7 +21,7 @@ const orders = [
   },
 ];
 
-const Dashboard = ({ openSidebar }) => {
+const Dashboard = ({ toogleSidebar }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
@@ -158,7 +158,7 @@ const Dashboard = ({ openSidebar }) => {
 
       <div className="right-section">
         <div className="nav">
-          <button id="menu-btn" onClick={() => openSidebar()}>
+          <button id="menu-btn" onClick={() => toogleSidebar()}>
             <span className="material-icons-sharp">menu</span>
           </button>
           <div className="dark-mode" onClick={() => toggleDarkMode()}>

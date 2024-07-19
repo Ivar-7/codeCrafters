@@ -6,13 +6,13 @@ import Dashboard from "./components/home/Dashboard";
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const openSidebar = () => setIsSidebarOpen(true);
-  const closeSidebar = () => setIsSidebarOpen(false);
+  const toogleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  console.log(isSidebarOpen);
 
   return (
     <div className="container">
-      <Navbar closeSidebar={closeSidebar} isSidebarOpen={isSidebarOpen} />
-      <Dashboard openSidebar={openSidebar} />
+      <Navbar isSidebarOpen={isSidebarOpen} />
+      <Dashboard toogleSidebar={toogleSidebar} />
     </div>
   );
 };
