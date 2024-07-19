@@ -33,6 +33,10 @@ const App = () => {
     }
   }, [isDarkMode]);
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <div className="container">
       <aside>
@@ -216,7 +220,7 @@ const App = () => {
           <button id="menu-btn">
             <span className="material-icons-sharp">menu</span>
           </button>
-          <div className="dark-mode">
+          <div className="dark-mode" onClick={() => toggleDarkMode()}>
             <span className="material-icons-sharp active">light_mode</span>
             <span className="material-icons-sharp">dark_mode</span>
           </div>
