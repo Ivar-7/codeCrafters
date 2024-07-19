@@ -1,16 +1,19 @@
-import React from "react";
-import { DashboardProvider } from "./components/api/FirebaseApi";
-import Navbar from "./components/home/Navbar";
+import React, { useState } from "react";
 import "./App.css";
+import Navbar from "./components/home/Navbar";
+import Dashboard from "./components/home/Dashboard";
 
-function App() {
+const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toogleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
   return (
-    <>
-      <DashboardProvider>
-        <Navbar />
-      </DashboardProvider>
-    </>
+    <div className="container">
+      <Navbar isSidebarOpen={isSidebarOpen} />
+      <Dashboard toogleSidebar={toogleSidebar} />
+    </div>
   );
-}
+};
 
 export default App;

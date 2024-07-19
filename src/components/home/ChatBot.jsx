@@ -4,7 +4,7 @@ import { collection, addDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../config/firebaseCon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Ai() {
+function ChatBot() {
   const { messages, setMessages } = useContext(DashboardContext);
   const [currentMessage, setCurrentMessage] = useState("");
 
@@ -96,4 +96,4 @@ function Ai() {
   );
 }
 
-export default Ai;
+export default ChatBot;

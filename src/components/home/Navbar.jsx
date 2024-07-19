@@ -1,54 +1,64 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.bundle.js";
-import Home from "./Home";
-import Ai from "./Ai";
 
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen }) => {
   return (
-    <Router>
-      <nav className="navbar navbar-expand-lg justify-content-center fixed-top">
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse justify-content-center"
-            id="navbarSupportedContent"
-          >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/ai">
-                  Ai
-                </Link>
-              </li>
-            </ul>
-          </div>
+    <aside style={{ display: isSidebarOpen ? "block" : "" }}>
+      <div className="toggle">
+        <div className="logo">
+          <img src="images/logo.png" />
+          <h2>
+            Agro<span className="danger">Intel</span>
+          </h2>
         </div>
-        <hr
-          className="mt-0 mb-0"
-          style={{ backgroundColor: "black", height: "1px" }}
-        />
-      </nav>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/ai" element={<Ai />} />
-      </Routes>
-    </Router>
+        <div className="close" id="close-btn">
+          <span className="material-icons-sharp">close</span>
+        </div>
+      </div>
+
+      <div className="sidebar">
+        <a href="/">
+          <span className="material-icons-sharp">dashboard</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="/farm" className="active">
+          <span className="material-icons-sharp">person_outline</span>
+          <h3>Farm Management</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">receipt_long</span>
+          <h3>Crop Management</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">insights</span>
+          <h3>Camera Assistance</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">mail_outline</span>
+          <h3>Analytics & Reports</h3>
+          <span className="message-count">27</span>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">inventory</span>
+          <h3>Chat Bot</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">report_gmailerrorred</span>
+          <h3>Support</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">settings</span>
+          <h3>Settings</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">add</span>
+          <h3>About US</h3>
+        </a>
+        <a href="#">
+          <span className="material-icons-sharp">logout</span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
   );
 };
 
