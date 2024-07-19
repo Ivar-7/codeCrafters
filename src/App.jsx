@@ -7,7 +7,6 @@ const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toogleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  console.log(isSidebarOpen);
 
   return (
     <div className="container">

@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = ({ isSidebarOpen }) => {
   return (
-    <aside style={{ display: isSidebarOpen ? "block" : "none" }}>
+    <aside style={{ display: isSidebarOpen ? "block" : "" }}>
       <div className="toggle">
         <div className="logo">
           <img src="images/logo.png" />
