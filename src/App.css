@@ -51,7 +51,7 @@ body{
     font-family: 'Poppins', sans-serif;
     font-size: 0.88rem;
     user-select: none;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     color: var(--color-dark);
     background-color: var(--color-background);
 }
