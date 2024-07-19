@@ -162,8 +162,18 @@ const Dashboard = ({ toogleSidebar }) => {
             <span className="material-icons-sharp">menu</span>
           </button>
           <div className="dark-mode" onClick={() => toggleDarkMode()}>
-            <span className="material-icons-sharp active">light_mode</span>
-            <span className="material-icons-sharp">dark_mode</span>
+            <span
+              className={`material-icons-sharp ${isDarkMode ? "" : "active"}`}
+              onClick={toggleDarkMode}
+            >
+              light_mode
+            </span>
+            <span
+              className={`material-icons-sharp ${isDarkMode ? "active" : ""}`}
+              onClick={toggleDarkMode}
+            >
+              dark_mode
+            </span>
           </div>
 
           <div className="profile">
