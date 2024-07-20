@@ -22,16 +22,17 @@ const orders = [
 ];
 
 const Dashboard = ({ toogleSidebar }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(true);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
+    setIsLightMode(!isLightMode);
+    if (isLightMode) {
       document.body.classList.add("dark-mode-variables");
     } else {
       document.body.classList.remove("dark-mode-variables");
     }
   };
+
   return (
     <>
       <div className="right-section">
@@ -41,14 +42,12 @@ const Dashboard = ({ toogleSidebar }) => {
           </button>
           <div className="dark-mode" onClick={() => toggleDarkMode()}>
             <span
-              className={`material-icons-sharp ${isDarkMode ? "active" : ""}`}
-              onClick={toggleDarkMode}
+              className={`material-icons-sharp ${isLightMode ? "active" : ""}`}
             >
               light_mode
             </span>
             <span
-              className={`material-icons-sharp ${isDarkMode ? "" : "active"}`}
-              onClick={toggleDarkMode}
+              className={`material-icons-sharp ${isLightMode ? "" : "active"}`}
             >
               dark_mode
             </span>
