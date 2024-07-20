@@ -21,7 +21,7 @@ const orders = [
   },
 ];
 
-const Dashboard = ({ toogleSidebar }) => {
+const Dashboard = ({ toggleSidebar }) => {
   const [isLightMode, setIsLightMode] = useState(true);
 
   const toggleDarkMode = () => {
@@ -37,7 +37,7 @@ const Dashboard = ({ toogleSidebar }) => {
     <>
       <div className="right-section">
         <div className="nav">
-          <button id="menu-btn" onClick={() => toogleSidebar()}>
+          <button id="menu-btn" onClick={() => toggleSidebar()}>
             <span className="material-icons-sharp">menu</span>
           </button>
           <div className="dark-mode" onClick={() => toggleDarkMode()}>
