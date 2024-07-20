@@ -14,7 +14,8 @@ function ChatBot() {
         const response = await axios.post("http://127.0.0.1:5000/api", {
           message: inputMessage,
         });
-        const botMessage = { message: response.data, isUser: false };
+        // console.log("Bot response: ", response);
+        const botMessage = { message: response.data.response, isUser: false };
         setMessages([...messages, userMessage, botMessage]);
       } catch (error) {
         console.error("Error sending message: ", error);
