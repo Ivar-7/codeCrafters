@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ isSidebarOpen }) => {
   return (
@@ -16,47 +17,47 @@ const Navbar = ({ isSidebarOpen }) => {
       </div>
 
       <div className="sidebar">
-        <a href="/">
+        <Link to="/">
           <span className="material-icons-sharp">dashboard</span>
           <h3>Dashboard</h3>
-        </a>
-        <a href="/farm">
+        </Link>
+        <Link to="/farm">
           <span className="material-icons-sharp">person_outline</span>
           <h3>Farm Management</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/crop-management">
           <span className="material-icons-sharp">receipt_long</span>
           <h3>Crop Management</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/camera-assistance">
           <span className="material-icons-sharp">insights</span>
           <h3>Camera Assistance</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/analytics-reports">
           <span className="material-icons-sharp">mail_outline</span>
           <h3>Analytics & Reports</h3>
           <span className="message-count">27</span>
-        </a>
-        <a href="/chatbot">
+        </Link>
+        <Link to="/chatbot">
           <span className="material-icons-sharp">inventory</span>
           <h3>Chat Bot</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/support">
           <span className="material-icons-sharp">report_gmailerrorred</span>
           <h3>Support</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/settings">
           <span className="material-icons-sharp">settings</span>
           <h3>Settings</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/about-us">
           <span className="material-icons-sharp">add</span>
           <h3>About US</h3>
-        </a>
-        <a href="#">
+        </Link>
+        <Link to="/logout">
           <span className="material-icons-sharp">logout</span>
           <h3>Logout</h3>
-        </a>
+        </Link>
       </div>
     </aside>
   );
