@@ -9,7 +9,6 @@ const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  console.log(isSidebarOpen);
 
   return (
     <Router>
