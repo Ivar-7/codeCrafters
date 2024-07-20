@@ -115,11 +115,22 @@ b{
 }
 
 .container{
-    display: grid;
-    width: 96%;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: 12rem auto 23rem;
+}
+
+.navbar {
+    width: auto;
+    height: 100vh;
+    margin-left: 1rem;
+}
+
+.main-content {
+    flex-grow: 1; /* Allow main content to grow and fill the available space */
 }
 
 aside{
@@ -222,7 +233,8 @@ aside .sidebar .message-count{
 }
 
 main{
-    margin-top: 1.4rem;
+    margin-top: 0.2rem;
+    margin-right: 1rem;
 }
 
 main .analyse{
@@ -381,10 +393,11 @@ main .crop-management a{
 
 .right-section {
     position: sticky;
-    right: 1cm;
+    margin-right: 2rem;
     margin-top: 1.4rem;
     z-index: 100;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    /* max-width: 100px; */
 }
 
 .right-section .nav{
@@ -711,3 +724,4 @@ main .crop-management a{
     }
 
 }
+

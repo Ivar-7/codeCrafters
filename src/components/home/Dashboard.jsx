@@ -21,19 +21,51 @@ const orders = [
   },
 ];
 
-const Dashboard = ({ toogleSidebar }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const Dashboard = ({ toggleSidebar }) => {
+  const [isLightMode, setIsLightMode] = useState(true);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsLightMode(!isLightMode);
+    if (isLightMode) {
+      document.body.classList.add("dark-mode-variables");
+    } else {
+      document.body.classList.remove("dark-mode-variables");
+    }
   };
-  if (isDarkMode) {
-    document.body.classList.add("dark-mode-variables");
-  } else {
-    document.body.classList.remove("dark-mode-variables");
-  }
+
   return (
     <>
+      <div className="right-section">
+        <div className="nav">
+          <button id="menu-btn" onClick={() => toggleSidebar()}>
+            <span className="material-icons-sharp">menu</span>
+          </button>
+          <div className="dark-mode" onClick={() => toggleDarkMode()}>
+            <span
+              className={`material-icons-sharp ${isLightMode ? "active" : ""}`}
+            >
+              light_mode
+            </span>
+            <span
+              className={`material-icons-sharp ${isLightMode ? "" : "active"}`}
+            >
+              dark_mode
+            </span>
+          </div>
+          <div className="profile">
+            <div className="info">
+              <p>
+                Hey, <b>Reza</b>
+              </p>
+              <small className="text-muted">Admin</small>
+            </div>
+            <div className="profile-photo">
+              <img src="images/profile-1.jpeg" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <main>
         <h1>Analytics</h1>
         <div className="analyse">
@@ -152,40 +184,6 @@ const Dashboard = ({ toogleSidebar }) => {
           <a href="#">Show All</a>
         </div>
       </main>
-
-      <div className="right-section">
-        <div className="nav">
-          <button id="menu-btn" onClick={() => toogleSidebar()}>
-            <span className="material-icons-sharp">menu</span>
-          </button>
-          <div className="dark-mode" onClick={() => toggleDarkMode()}>
-            <span
-              className={`material-icons-sharp ${isDarkMode ? "" : "active"}`}
-              onClick={toggleDarkMode}
-            >
-              light_mode
-            </span>
-            <span
-              className={`material-icons-sharp ${isDarkMode ? "active" : ""}`}
-              onClick={toggleDarkMode}
-            >
-              dark_mode
-            </span>
-          </div>
-
-          <div className="profile">
-            <div className="info">
-              <p>
-                Hey, <b>Reza</b>
-              </p>
-              <small className="text-muted">Admin</small>
-            </div>
-            <div className="profile-photo">
-              <img src="images/profile-1.jpeg" />
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
