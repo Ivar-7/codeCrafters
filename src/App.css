@@ -125,7 +125,8 @@ b{
 
 .navbar {
     width: auto;
-    height: 100vh; /* Full height */
+    height: 100vh;
+    margin-left: 1rem;
 }
 
 .main-content {

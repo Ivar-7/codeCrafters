@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
 import Navbar from "./components/home/Navbar";
 import Dashboard from "./components/home/Dashboard";
 import ChatBot from "./components/home/ChatBot";
+import "./App.css";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
