@@ -20,7 +20,7 @@ const Navbar = ({ isSidebarOpen }) => {
           <span className="material-icons-sharp">dashboard</span>
           <h3>Dashboard</h3>
         </a>
-        <a href="/farm" className="active">
+        <a href="/farm">
           <span className="material-icons-sharp">person_outline</span>
           <h3>Farm Management</h3>
         </a>
@@ -37,7 +37,7 @@ const Navbar = ({ isSidebarOpen }) => {
           <h3>Analytics & Reports</h3>
           <span className="message-count">27</span>
         </a>
-        <a href="#">
+        <a href="/chatbot">
           <span className="material-icons-sharp">inventory</span>
           <h3>Chat Bot</h3>
         </a>

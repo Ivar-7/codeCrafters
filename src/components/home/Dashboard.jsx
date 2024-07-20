@@ -22,7 +22,7 @@ const orders = [
 ];
 
 const Dashboard = ({ toogleSidebar }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -53,7 +53,6 @@ const Dashboard = ({ toogleSidebar }) => {
               dark_mode
             </span>
           </div>
-
           <div className="profile">
             <div className="info">
               <p>
@@ -67,6 +66,7 @@ const Dashboard = ({ toogleSidebar }) => {
           </div>
         </div>
       </div>
+
       <main>
         <h1>Analytics</h1>
         <div className="analyse">
