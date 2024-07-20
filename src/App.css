@@ -115,11 +115,21 @@ b{
 }
 
 .container{
-    display: grid;
-    width: 96%;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: 12rem auto 23rem;
+}
+
+.navbar {
+    width: auto;
+    height: 100vh; /* Full height */
+}
+
+.main-content {
+    flex-grow: 1; /* Allow main content to grow and fill the available space */
 }
 
 aside{
