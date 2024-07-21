@@ -1,0 +1,110 @@
+/* CameraAssistance Page Styles */
+#CameraAssistance {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#CameraAssistance .header {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+#CameraAssistance .content {
+    padding: var(--padding-1);
+}
+
+/* AnalyticsReports Page Styles */
+#AnalyticsReports {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#AnalyticsReports .chart-container {
+    display: flex;
+    gap: 20px;
+    padding: var(--padding-1);
+}
+
+#AnalyticsReports .chart {
+    flex-grow: 1;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: var(--box-shadow);
+}
+
+/* Support Page Styles */
+#Support {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#Support .faq-container {
+    padding: var(--padding-1);
+}
+
+#Support .faq-item {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
+    padding: 20px;
+}
+
+/* Settings Page Styles */
+#Settings {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#Settings .setting-section {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
+    padding: 20px;
+}
+
+/* Farm Page Styles */
+#Farm {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#Farm .farm-info {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    padding: var(--padding-1);
+}
+
+/* CropManagement Page Styles */
+#CropManagement {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#CropManagement .crop-list {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    padding: var(--padding-1);
+}
+
+/* AboutUs Page Styles */
+#AboutUs {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+#AboutUs .team-members {
+    display: flex;
+    gap: 20px;
+    padding: var(--padding-1);
+}
+
+#AboutUs .member {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-1);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
