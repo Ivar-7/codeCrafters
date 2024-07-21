@@ -8,6 +8,7 @@ import { DashboardContext } from "../api/FirebaseApi";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { setUser } = useContext(DashboardContext);
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const Login = () => {
       // console.log("Logged in user:", userCredential.user);
       navigate("/");
     } catch (error) {
+      setError(error.message);
       console.error("Error logging in:", error.message);
       // Here, you could set an error message to display to the user
     }
@@ -34,6 +36,7 @@ const Login = () => {
       <div className="login-shape"></div>
       <form className="login-form" onSubmit={handleLogin}>
         <h3>Login</h3>
+        {error && <div className="error-message">{error}</div>}
         <label htmlFor="username">Email</label>
         <input
           type="text"

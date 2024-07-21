@@ -239,9 +239,9 @@
   }
   
   .bot-message {
-    background-color:#2c2828;
     color: #fff9f9;
     align-self: flex-start;
+    background: linear-gradient(135deg, #374643, #3b4845);
   }
   
   /* Icons */
@@ -266,3 +266,15 @@
   .chat-box::-webkit-scrollbar-track {
     background-color: #f1f1f1;
   }
+
+  .error-message {
+    color: var(--color-danger);
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    border: 1px solid var(--color-danger);
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  

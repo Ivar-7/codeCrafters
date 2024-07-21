@@ -9,6 +9,7 @@ import { DashboardContext } from "../api/FirebaseApi";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { setUser } = useContext(DashboardContext);
   const navigate = useNavigate();
 
@@ -33,6 +34,8 @@ const Signup = () => {
       setUser(userCredential.user);
       navigate("/");
     } catch (error) {
+      setError(error.message);
+      console.log(error);
       console.error("Error signing up and saving user:", error.message);
     }
   };
@@ -43,6 +46,7 @@ const Signup = () => {
       <div className="login-shape"></div>
       <form className="login-form" onSubmit={signUp}>
         <h3>Sign Up</h3>
+        {error && <div className="error-message">{error}</div>}
         <label htmlFor="email">Email</label>
         <input
           type="text"
