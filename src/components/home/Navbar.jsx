@@ -61,7 +61,7 @@ const Navbar = ({ isSidebarOpen }) => {
           <span className="message-count">27</span>
         </Link>
         <Link to="/chatbot">
-          <span className="material-icons-sharp">inventory</span>
+          <span className="material-icons-sharp">android</span>
           <h3>Chat Bot</h3>
         </Link>
         <Link to="/support">

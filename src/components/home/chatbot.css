@@ -1,12 +1,13 @@
   
-  /* Existing styles for .chat-container */
-  
+  /* Updated styles for .chat-container to make it wider and reduce its height */
+
   .chat-container {
-    width: 400px;
+    width: 500px; /* Increased width */
+    max-height: 600px; /* Reduced height */
     background: linear-gradient(#212121, #212121) padding-box,
                 linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
-    padding:39px;
+    padding: 39px;
     font-size: 14px;
     font-family: inherit;
     color: rgb(168, 84, 84);
@@ -18,9 +19,11 @@
     border-radius: 16px;
     margin-inline: auto;
     margin: 20px;
-    position:absolute;
-    left: 45%;
-    
+    position: fixed; /* Changed from absolute to fixed for centering on the entire screen */
+    top: 50%;
+    left: 50%;
+    /* bottom: 1px; */
+    transform: translate(-50%, -50%); /* Adjusts the element to be centered exactly */
   }
   
   /* Chat Title */
