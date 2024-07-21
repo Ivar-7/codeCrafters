@@ -115,7 +115,7 @@ const Dashboard = ({ toggleSidebar }) => {
           </div>
         </div>
         <div className="new-users">
-          <h2>Farm Management</h2>
+          <h2>Farm Management Check</h2>
           <div className="user-list">
             <div className="user">
               <img src="images/profile-4.jpeg" />
@@ -144,7 +144,7 @@ const Dashboard = ({ toggleSidebar }) => {
           </div>
         </div>
         <div className="crop-management">
-          <h2>Crop Management</h2>
+          <h2>Crop Management Check</h2>
           <table>
             <thead>
               <tr>
