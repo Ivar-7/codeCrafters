@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
+
+.login-background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.login-shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.login-shape:first-child {
+  background: linear-gradient(var(--color-primary), #23a2f6);
+  left: -80px;
+  top: -80px;
+}
+
+.login-shape:last-child {
+  background: linear-gradient(to right, var(--color-danger), #f09819);
+  right: -30px;
+  bottom: -80px;
+}
+
+.login-form {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  color: var(--color-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-form input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-dark);
+}
+
+.login-form input::placeholder {
+  color: #e5e5e5;
+}
+
+.login-form button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.social {
+  margin-top: 30px;
+  display: flex;
+}
+
+.social div {
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255, 255, 255, 0.27);
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+  margin-left: 25px;
+}
+
+.social i {
+  margin-right: 4px;
+}
+
+/* Light and Dark Mode CSS */
+
+body {
+  background-color: var(--color-background);
+}
+
+.dark-mode {
+  --color-background: #080710;
+  --color-dark: #ffffff;
+  --color-white: #080710;
+  --color-primary: #1845ad;
+  --color-danger: #ff512f;
+}
+
+.light-mode {
+  --color-background: #f6f6f9;
+  --color-dark: #363949;
+  --color-white: #ffffff;
+  --color-primary: #6C9BCF;
+  --color-danger: #FF0060;
+}
+
+body.dark-mode .login-form {
+  background-color: rgba(255, 255, 255, 0.13);
+  color: var(--color-dark);
+}
+
+body.light-mode .login-form {
+  background-color: rgba(255, 255, 255, 0.87);
+  color: var(--color-dark);
+}

@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db, auth } from "../../config/firebaseCon";
+// import { collection, getDocs } from "firebase/firestore";
+import { auth } from "../../config/firebaseCon";
 
 // Global Dashboard Context
 export const DashboardContext = createContext();
@@ -8,8 +8,7 @@ export const DashboardContext = createContext();
 export function DashboardProvider({ children }) {
   // State variable to store data
   let [user, setUser] = useState(null);
-  let [users, setUsers] = useState(null);
-  let [messages, setMessages] = useState(null);
+  let [isDarkMode, setIsDarkMode] = useState(true);
   let [loading, setLoading] = useState(true);
 
   // Function to fetch user data from Firestore
@@ -26,30 +25,19 @@ export function DashboardProvider({ children }) {
   }
 
   // Function to fetch users data from Firestore
-  async function getUsers() {
-    const usersCollection = collection(db, "Users");
-    const usersSnapshot = await getDocs(usersCollection);
-    const usersList = usersSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setUsers(usersList);
-  }
-
-  // Function to fetch messages data from Firestore
-  async function getMessages() {
-    const messagesCollection = collection(db, "Messages");
-    const messagesSnapshot = await getDocs(messagesCollection);
-    const messagesList = messagesSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    setMessages(messagesList);
-  }
+  // async function getUsers() {
+  //   const usersCollection = collection(db, "Users");
+  //   const usersSnapshot = await getDocs(usersCollection);
+  //   const usersList = usersSnapshot.docs.map((doc) => ({
+  //     id: doc.id,
+  //     ...doc.data(),
+  //   }));
+  //   setUsers(usersList);
+  // }
 
   // Fetch users and events data when the component mounts
   useEffect(() => {
-    Promise.all([getUser(), getUsers(), getMessages()]).then(() => {
+    Promise.all([getUser()]).then(() => {
       console.log("Data fetched successfully");
       setLoading(false);
     });
@@ -61,10 +49,8 @@ export function DashboardProvider({ children }) {
       value={{
         user,
         setUser,
-        users,
-        setUsers,
-        messages,
-        setMessages,
+        isDarkMode,
+        setIsDarkMode,
         loading,
         setLoading,
       }}

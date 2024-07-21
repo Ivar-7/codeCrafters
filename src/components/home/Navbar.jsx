@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { DashboardContext } from "../api/FirebaseApi";
+import { auth } from "../../config/firebaseCon";
 
 const Navbar = ({ isSidebarOpen }) => {
+  const { user, setUser, isDarkMode } = useContext(DashboardContext);
+
+  const handleLogout = async () => {
+    // Add this function
+    try {
+      await auth.signOut();
+      setUser(null);
+    } catch (error) {
+      console.error("Logout Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode-variables");
+    } else {
+      document.body.classList.remove("dark-mode-variables");
+    }
+  }, [isDarkMode]);
+
   return (
     <aside style={{ display: isSidebarOpen ? "block" : "" }}>
       <div className="toggle">
@@ -54,10 +76,18 @@ const Navbar = ({ isSidebarOpen }) => {
           <span className="material-icons-sharp">add</span>
           <h3>About US</h3>
         </Link>
-        <Link to="/logout">
-          <span className="material-icons-sharp">logout</span>
-          <h3>Logout</h3>
-        </Link>
+        {/* Conditional Rendering for Login/Logout */}
+        {user ? (
+          <Link to="/" onClick={handleLogout}>
+            <span className="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <span className="material-icons-sharp">login</span>
+            <h3>Login</h3>
+          </Link>
+        )}
       </div>
     </aside>
   );

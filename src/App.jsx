@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { DashboardProvider } from "./components/api/FirebaseApi";
 import Navbar from "./components/home/Navbar";
 import Dashboard from "./components/home/Dashboard";
 import ChatBot from "./components/home/ChatBot";
+import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
 import "./App.css";
 
 const App = () => {
@@ -11,23 +14,27 @@ const App = () => {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <Router>
-      <div className="container">
-        <div className="navbar">
-          <Navbar isSidebarOpen={isSidebarOpen} />
+    <DashboardProvider>
+      <Router>
+        <div className="container">
+          <div className="navbar">
+            <Navbar isSidebarOpen={isSidebarOpen} />
+          </div>
+          <div className="main-content">
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={<Dashboard toggleSidebar={toggleSidebar} />}
+              />
+              <Route exact path="/chatbot" element={<ChatBot />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
+            </Routes>
+          </div>
         </div>
-        <div className="main-content">
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={<Dashboard toggleSidebar={toggleSidebar} />}
-            />
-            <Route exact path="/chatbot" element={<ChatBot />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+      </Router>
+    </DashboardProvider>
   );
 };
 
