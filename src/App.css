@@ -52,6 +52,7 @@ body{
     font-size: 0.88rem;
     user-select: none;
     overflow-x: hidden;
+    /* overflow-y: hidden; */
     color: var(--color-dark);
     background-color: var(--color-background);
 }
@@ -191,11 +192,11 @@ aside .sidebar a span{
     transition: all 0.3s ease;
 }
 
-aside .sidebar a:last-child{
+/* aside .sidebar a:last-child{
     position: absolute;
     bottom: 2rem;
     width: 100%;
-}
+} */
 
 aside .sidebar a.active{
     width: 100%;
@@ -396,7 +397,7 @@ main .crop-management a{
     margin-right: 2rem;
     margin-top: 1.4rem;
     z-index: 100;
-    /* overflow-y: auto; */
+    /* overflow-y: hidden; */
     /* max-width: 100px; */
 }
 

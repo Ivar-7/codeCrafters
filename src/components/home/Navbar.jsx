@@ -54,9 +54,9 @@ const Navbar = ({ isSidebarOpen }) => {
           <span className="material-icons-sharp">add</span>
           <h3>About US</h3>
         </Link>
-        <Link to="/logout">
-          <span className="material-icons-sharp">logout</span>
-          <h3>Logout</h3>
+        <Link to="/login">
+          <span className="material-icons-sharp">login</span>
+          <h3>Login</h3>
         </Link>
       </div>
     </aside>

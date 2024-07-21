@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
+import { DashboardContext } from "../api/FirebaseApi";
 
 const orders = [
   {
@@ -22,15 +23,18 @@ const orders = [
 ];
 
 const Dashboard = ({ toggleSidebar }) => {
-  const [isLightMode, setIsLightMode] = useState(true);
+  const { isDarkMode, setIsDarkMode } = useContext(DashboardContext);
 
-  const toggleDarkMode = () => {
-    setIsLightMode(!isLightMode);
-    if (isLightMode) {
+  useEffect(() => {
+    if (isDarkMode) {
       document.body.classList.add("dark-mode-variables");
     } else {
       document.body.classList.remove("dark-mode-variables");
     }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   return (
@@ -42,12 +46,12 @@ const Dashboard = ({ toggleSidebar }) => {
           </button>
           <div className="dark-mode" onClick={() => toggleDarkMode()}>
             <span
-              className={`material-icons-sharp ${isLightMode ? "active" : ""}`}
+              className={`material-icons-sharp ${isDarkMode ? "" : "active"}`}
             >
               light_mode
             </span>
             <span
-              className={`material-icons-sharp ${isLightMode ? "" : "active"}`}
+              className={`material-icons-sharp ${isDarkMode ? "active" : ""}`}
             >
               dark_mode
             </span>
