@@ -1,3 +1,13 @@
+/* Global Styles */
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
 /* CameraAssistance Page Styles */
 #CameraAssistance {
     background-color: var(--color-background);
@@ -30,24 +40,6 @@
     background-color: var(--color-white);
     border-radius: var(--border-radius-2);
     box-shadow: var(--box-shadow);
-}
-
-/* Support Page Styles */
-#Support {
-    background-color: var(--color-background);
-    color: var(--color-dark);
-}
-
-#Support .faq-container {
-    padding: var(--padding-1);
-}
-
-#Support .faq-item {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius-1);
-    box-shadow: var(--box-shadow);
-    margin-bottom: 1rem;
-    padding: 20px;
 }
 
 /* Settings Page Styles */
