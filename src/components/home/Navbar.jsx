@@ -1,16 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DashboardContext } from "../api/FirebaseApi";
-import { auth } from "../api/FirebaseApi"; // Add this import
+import { auth } from "../../config/firebaseCon";
 
 const Navbar = ({ isSidebarOpen }) => {
-  const { user, isDarkMode } = useContext(DashboardContext);
+  const { user, setUser, isDarkMode } = useContext(DashboardContext);
 
   const handleLogout = async () => {
     // Add this function
     try {
       await auth.signOut();
-      // Handle any post-logout logic here, like redirecting
+      setUser(null);
     } catch (error) {
       console.error("Logout Error:", error);
     }
@@ -78,7 +78,7 @@ const Navbar = ({ isSidebarOpen }) => {
         </Link>
         {/* Conditional Rendering for Login/Logout */}
         {user ? (
-          <Link to="/logout" onClick={handleLogout}>
+          <Link to="/" onClick={handleLogout}>
             <span className="material-icons-sharp">logout</span>
             <h3>Logout</h3>
           </Link>
