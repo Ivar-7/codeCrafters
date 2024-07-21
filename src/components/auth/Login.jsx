@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -7,7 +8,7 @@ const Login = () => {
       <div className="login-shape"></div>
       <div className="login-shape"></div>
       <form className="login-form">
-        <h3>Login Here</h3>
+        <h3>Login</h3>
         <label htmlFor="username">Username</label>
         <input type="text" placeholder="Email or Phone" id="username" />
         <label htmlFor="password">Password</label>
@@ -21,6 +22,9 @@ const Login = () => {
             <i className="fab fa-facebook"></i> Facebook
           </div>
         </div>
+        <p className="redirect-to-signup">
+          Don't have an account? <Link to="/signup">Sign Up</Link>
+        </p>
       </form>
     </div>
   );

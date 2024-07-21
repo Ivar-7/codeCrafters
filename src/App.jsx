@@ -5,6 +5,7 @@ import Navbar from "./components/home/Navbar";
 import Dashboard from "./components/home/Dashboard";
 import ChatBot from "./components/home/ChatBot";
 import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
 import "./App.css";
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
               />
               <Route exact path="/chatbot" element={<ChatBot />} />
               <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
             </Routes>
           </div>
         </div>
