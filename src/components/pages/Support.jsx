@@ -4,22 +4,22 @@ import "./support.css";
 const Support = () => {
   return (
     <>
-      <div class="plans-container">
-        <div class="plan">
-          <div class="inner">
-            <span class="pricing">
+      <div className="plans-container">
+        <div className="plan">
+          <div className="inner">
+            <span className="pricing">
               <span>
                 Free Plan <small>/ Y</small>
               </span>
             </span>
-            <p class="title">Free Plan</p>
-            <p class="info">
+            <p className="title">Free Plan</p>
+            <p className="info">
               Enjoy all the exclusive privileges for free for one planting
               season
             </p>
-            <ul class="features">
+            <ul className="features">
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -38,7 +38,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -57,7 +57,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -76,27 +76,27 @@ const Support = () => {
                 </span>
               </li>
             </ul>
-            <div class="action">
-              <a class="button" href="#">
+            <div className="action">
+              <a className="button" href="#">
                 Begin free plan
               </a>
             </div>
           </div>
         </div>
-        <div class="plan">
-          <div class="inner">
-            <span class="pricing">
+        <div className="plan">
+          <div className="inner">
+            <span className="pricing">
               <span>
                 $99 <small>/ Y</small>
               </span>
             </span>
-            <p class="title">Basic Plan</p>
-            <p class="info">
+            <p className="title">Basic Plan</p>
+            <p className="info">
               Ideal for small farms looking for essential tools.
             </p>
-            <ul class="features">
+            <ul className="features">
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -115,7 +115,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -134,7 +134,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -153,7 +153,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -172,7 +172,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -191,25 +191,25 @@ const Support = () => {
                 </span>
               </li>
             </ul>
-            <div class="action">
-              <a class="button" href="#">
+            <div className="action">
+              <a className="button" href="#">
                 Choose plan
               </a>
             </div>
           </div>
         </div>
-        <div class="plan">
-          <div class="inner">
-            <span class="pricing">
+        <div className="plan">
+          <div className="inner">
+            <span className="pricing">
               <span>
                 $199<small>/ Y</small>
               </span>
             </span>
-            <p class="title">Premium Plan</p>
-            <p class="info">For advanced features and extensive support.</p>
-            <ul class="features">
+            <p className="title">Premium Plan</p>
+            <p className="info">For advanced features and extensive support.</p>
+            <ul className="features">
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -228,7 +228,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -247,7 +247,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -266,7 +266,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -285,7 +285,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -304,7 +304,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -323,7 +323,7 @@ const Support = () => {
                 </span>
               </li>
               <li>
-                <span class="icon">
+                <span className="icon">
                   <svg
                     height="24"
                     width="24"
@@ -342,8 +342,8 @@ const Support = () => {
                 </span>
               </li>
             </ul>
-            <div class="action">
-              <a class="button" href="#">
+            <div className="action">
+              <a className="button" href="#">
                 Choose plan
               </a>
             </div>

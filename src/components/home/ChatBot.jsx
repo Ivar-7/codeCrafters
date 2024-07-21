@@ -6,12 +6,18 @@ function ChatBot() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [error, setError] = useState("");
+
+  const baseURL =
+    process.env.NODE_ENV === "development"
+      ? "http://127.0.0.1:5000"
+      : "https://codecrafterbackend.onrender.com";
+  
   const sendMessage = async () => {
     if (inputMessage.trim() !== "") {
       const userMessage = { message: inputMessage, isUser: true };
       setMessages([...messages, userMessage]);
       try {
-        const response = await axios.post("http://127.0.0.1:5000/api", {
+        const response = await axios.post(`${baseURL}/api`, {
           message: inputMessage,
         });
         // console.log("Bot response: ", response);
@@ -59,24 +65,24 @@ function ChatBot() {
       </div>
 
       <button type="button" className="send-btn" onClick={sendMessage}>
-        <div class="btn-conteiner">
-          <a class="btn-content" href="#">
-            <span class="btn-title">Send</span>
-            <span class="icon-arrow">
+        <div className="btn-conteiner">
+          <a className="btn-content" href="#">
+            <span className="btn-title">Send</span>
+            <span className="icon-arrow">
               <svg
                 width="66px"
                 height="43px"
                 viewBox="0 0 66 43"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
               >
                 <g
                   id="arrow"
                   stroke="none"
-                  stroke-width="1"
+                  strokeWidth="1"
                   fill="none"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 >
                   <path
                     id="arrow-icon-one"
