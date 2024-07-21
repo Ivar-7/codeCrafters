@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { DashboardContext } from "../api/FirebaseApi";
 
 const orders = [
@@ -24,14 +24,6 @@ const orders = [
 
 const Dashboard = ({ toggleSidebar }) => {
   const { isDarkMode, setIsDarkMode } = useContext(DashboardContext);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode-variables");
-    } else {
-      document.body.classList.remove("dark-mode-variables");
-    }
-  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

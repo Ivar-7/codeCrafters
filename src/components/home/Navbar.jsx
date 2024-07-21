@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { DashboardContext } from "../api/FirebaseApi";
 
 const Navbar = ({ isSidebarOpen }) => {
+  const { isDarkMode } = useContext(DashboardContext);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode-variables");
+    } else {
+      document.body.classList.remove("dark-mode-variables");
+    }
+  }, [isDarkMode]);
+
   return (
     <aside style={{ display: isSidebarOpen ? "block" : "" }}>
       <div className="toggle">
