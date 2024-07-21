@@ -1,20 +1,21 @@
-/* Container for horizontal cards */
+
 .plans-container {
+    background-color: var(--color-background);
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allows cards to wrap to next line if they overflow */
-    gap: 20px; /* Space between cards */
-    background-color: #f0f4f8; /* Light background color to match AI theme */
+    flex-wrap: wrap;
+    gap: 20px;
     padding: 20px;
-    margin: 0 auto; /* Center container */
+    margin: 0 auto;
 }
+
 
 /* Card styling */
 .plan {
     border-radius: 16px;
     box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
     padding: 10px;
-    background-color: #ffffff; /* White background for cards */
+    background-color: #ffffff;
     color: #697e91;
     max-width: 300px;
     flex: 1 1 300px; /* Ensures cards are flexible and fit within container */
@@ -32,7 +33,7 @@
     align-items: center;
     padding: 20px;
     padding-top: 40px;
-    background-color: #ecf0ff; /* Light blue background to match AI theme */
+    background-color: #ecf0ff;
     border-radius: 12px;
     position: relative;
 }
@@ -41,7 +42,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: #bed6fb; /* Light blue to match AI theme */
+    /* background-color: #bed6fb; */
     border-radius: 99em 0 0 99em;
     display: flex;
     align-items: center;
@@ -129,11 +130,4 @@
 
 .plan .button:hover, .plan .button:focus {
     background-color: #4133B7; /* Darker purple for hover/focus */
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8; /* Light background color to match AI theme */
-    color: #333; /* Default text color */
 }
