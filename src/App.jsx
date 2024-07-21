@@ -6,6 +6,14 @@ import Dashboard from "./components/home/Dashboard";
 import ChatBot from "./components/home/ChatBot";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
+import AboutUs from "./components/pages/AboutUs";
+import AnalyticsReports from "./components/pages/AnalyticsReports";
+import CameraAssistance from "./components/pages/CameraAssistance";
+import CropManagement from "./components/pages/CropManagement";
+import Farm from "./components/pages/Farm";
+import Settings from "./components/pages/Settings";
+import Support from "./components/pages/Support";
+
 import "./App.css";
 
 const App = () => {
@@ -30,6 +38,25 @@ const App = () => {
               <Route exact path="/chatbot" element={<ChatBot />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/about-us" element={<AboutUs />} />
+              <Route exact path="/farm" element={<Farm />} />
+              <Route exact path="/settings" element={<Settings />} />
+              <Route exact path="/support" element={<Support />} />
+              <Route
+                exact
+                path="/camera-assistance"
+                element={<CameraAssistance />}
+              />
+              <Route
+                exact
+                path="/analytics-reports"
+                element={<AnalyticsReports />}
+              />
+              <Route
+                exact
+                path="/crop-management"
+                element={<CropManagement />}
+              />
             </Routes>
           </div>
         </div>
