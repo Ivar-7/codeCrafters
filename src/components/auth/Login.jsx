@@ -20,7 +20,7 @@ const Login = () => {
       );
       setUser(userCredential.user);
       //   console.log("Logged in user:", userCredential.user);
-      history.push("/dashboard"); // Redirects the user to the dashboard after login
+      history.push("/"); // Redirects the user to the dashboard after login
     } catch (error) {
       console.error("Error logging in:", error.message);
       // Here, you could set an error message to display to the user

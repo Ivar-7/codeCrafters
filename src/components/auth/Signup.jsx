@@ -26,7 +26,7 @@ const Signup = () => {
         "Account created and saved to Firestore:",
         userCredential.user
       );
-      history.push("/dashboard");
+      history.push("/");
     } catch (error) {
       console.error("Error signing up and saving user:", error.message);
     }
