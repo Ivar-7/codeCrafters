@@ -1,9 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DashboardContext } from "../api/FirebaseApi";
+import { auth } from "../api/FirebaseApi"; // Add this import
 
 const Navbar = ({ isSidebarOpen }) => {
-  const { isDarkMode } = useContext(DashboardContext);
+  const { user, isDarkMode } = useContext(DashboardContext);
+
+  const handleLogout = async () => {
+    // Add this function
+    try {
+      await auth.signOut();
+      // Handle any post-logout logic here, like redirecting
+    } catch (error) {
+      console.error("Logout Error:", error);
+    }
+  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -65,10 +76,18 @@ const Navbar = ({ isSidebarOpen }) => {
           <span className="material-icons-sharp">add</span>
           <h3>About US</h3>
         </Link>
-        <Link to="/login">
-          <span className="material-icons-sharp">login</span>
-          <h3>Login</h3>
-        </Link>
+        {/* Conditional Rendering for Login/Logout */}
+        {user ? (
+          <Link to="/logout" onClick={handleLogout}>
+            <span className="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <span className="material-icons-sharp">login</span>
+            <h3>Login</h3>
+          </Link>
+        )}
       </div>
     </aside>
   );
