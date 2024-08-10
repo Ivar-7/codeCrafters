@@ -283,7 +283,7 @@ main .analyse svg{
 
 main .analyse svg circle{
     fill: none;
-    strokeWidth: 10;
+    /* strokeWidth: 10; */
     stroke-linecap: round;
     transform: translate(5px, 5px);
 }

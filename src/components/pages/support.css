@@ -19,6 +19,7 @@
     flex: 1 1 300px; /* Ensures cards are flexible and fit within container */
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s;
 }
 
 /* Title and other styles */
@@ -126,5 +127,8 @@
 }
 
 .plan .button:hover, .plan .button:focus {
-    background-color: #4133B7; /* Darker purple for hover/focus */
+    background-color: #9289e7; /* Darker purple for hover/focus */
+}
+.plan:hover {
+    transform: translateY(-10px);
 }

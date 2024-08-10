@@ -1,0 +1,76 @@
+ .container1{
+  flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 1px; 
+} 
+h1 {
+  color: #b4b4b4;
+  font-size: 1.4em;
+  cursor: pointer;
+  display: flex; /* Ensure header is a block element */
+  width: 100%; /* Make sure the header takes the full width */
+  text-align: center; /* Center-align the text if needed */
+  margin-bottom: 20px; /* Add margin to create space below the header */
+}
+
+.container1  h2 {
+  font-size: 1.6em;
+  line-height: 18px;
+  cursor: pointer;
+  margin: 10px;
+  color: rgba(255, 255, 255, 0.18) ;
+}
+
+.container1 .right .top .user h2 span {
+  color: #6d6060;
+  font-size: 0.8em;
+}
+
+.card{
+  display: flex;
+  height: 250px;
+  width: 400px;
+  flex-wrap:wrap;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--color-background);
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  cursor: pointer;
+  box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.projectTop {
+  font-weight: 700;
+  font-size: 0.9em;
+  letter-spacing: 1.2px;
+  color: white;
+  display:flex-start;
+}
+
+.process {
+  font-size: 1em;
+  letter-spacing: 1.2px;
+  color: rgb(197, 197, 197);
+  
+  
+}
+
+.cardContainer::before {
+  width: 100px;
+  height: 100px;
+  content: "";
+  position: absolute;
+  background-color: rgb(144, 161, 255);
+  z-index: -1;
+  border-radius: 50%;
+  left: 100px;
+  top: 50px;
+  transition: all 1s;
+}
+
+.cardContainer:hover::before {
+  transform: translate(-50px, 50px);
+}
+
