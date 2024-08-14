@@ -66,7 +66,7 @@ const Navbar = ({ isSidebarOpen }) => {
         </Link>
         <Link to="/support">
           <span className="material-icons-sharp">report_gmailerrorred</span>
-          <h3>Support</h3>
+          <h3>Billing</h3>
         </Link>
         <Link to="/settings">
           <span className="material-icons-sharp">settings</span>

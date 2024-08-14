@@ -1,5 +1,5 @@
 import React from "react";
-import "./pages.css";
+import "./settings.css";
 const Settings = () => {
   return (
     <div id="Settings" className="centered">
