@@ -39,12 +39,12 @@ h1 {
 }
 
 .card h2 {
-    color: #fff;
+    color:var(--color-dark);
     margin-bottom: 15px;
 }
 
 .card p {
-    color: #f0f8ff;
+    color:var(--color-dark);
     font-size: 16px;
     text-align: center;
     margin-bottom: 20px;
@@ -64,3 +64,4 @@ h1 {
     background-color: #007c91;
     color: #fff;
 }
+

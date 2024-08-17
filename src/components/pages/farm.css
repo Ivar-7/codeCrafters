@@ -1,76 +1,143 @@
- .container1{
-  flex-wrap: wrap;
+/* General Card Styling */
+.container1 {
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
   gap: 20px;
   justify-content: center;
-  padding: 1px; 
-} 
-h1 {
-  color: #b4b4b4;
-  font-size: 1.4em;
-  cursor: pointer;
-  display: flex; /* Ensure header is a block element */
-  width: 100%; /* Make sure the header takes the full width */
-  text-align: center; /* Center-align the text if needed */
-  margin-bottom: 20px; /* Add margin to create space below the header */
+  padding: 1px;
 }
-
-.container1  h2 {
-  font-size: 1.6em;
-  line-height: 18px;
-  cursor: pointer;
-  margin: 10px;
-  color: rgba(255, 255, 255, 0.18) ;
-}
-
-.container1 .right .top .user h2 span {
-  color: #6d6060;
-  font-size: 0.8em;
-}
-
-.card{
+.card {
   display: flex;
-  height: 250px;
-  width: 400px;
-  flex-wrap:wrap;
+  flex-direction: column;
+  height: auto; /* Adjust height based on content */
+  width: 400px; /* Adjust width if necessary */
   padding: 20px;
   border-radius: 10px;
   background-color: var(--color-background);
   border: 1px solid rgba(255, 255, 255, 0.089);
   cursor: pointer;
   box-shadow: 0 2rem 3rem var(--color-light);
+  margin: 10px;
 }
 
-.projectTop {
+.card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-dark);
+}
+
+.card li:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.card .projectTop {
   font-weight: 700;
   font-size: 0.9em;
   letter-spacing: 1.2px;
-  color: white;
-  display:flex-start;
+  color:var(--color-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.process {
+.card .process,
+.card .SoilInfromation,
+.card .weather,
+.card .plantDescrib {
+  margin-top: 10px;
+}
+
+.card .btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #63b3ed; /* Button color */
+  color:var(--color-dark);
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Crop Mini-Management Specific */
+.CropManageMent {
+  background-color:  var(--color-background);
+}
+
+.plantDescrib ul {
+  padding: 0;
+}
+
+.plantDescrib li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.plantInfo {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.plantInfo .material-icons-sharp {
+  font-size: 24px;
+  color: #63b3ed;
+  margin-right: 10px;
+}
+
+.plantInfo .text {
   font-size: 1em;
-  letter-spacing: 1.2px;
-  color: rgb(197, 197, 197);
-  
-  
+  color:var(--color-dark);
 }
 
-.cardContainer::before {
-  width: 100px;
-  height: 100px;
-  content: "";
-  position: absolute;
-  background-color: rgb(144, 161, 255);
-  z-index: -1;
-  border-radius: 50%;
-  left: 100px;
-  top: 50px;
-  transition: all 1s;
+.timelineTime {
+  font-size: 0.9em;
+  font-weight: bold;
+  color:var(--color-dark);
+  text-align: right;
 }
 
-.cardContainer:hover::before {
-  transform: translate(-50px, 50px);
+/* Weather Card Specific */
+.weatherCard .weatherIconName {
+  display: flex;
+  align-items: center;
 }
 
+.weatherCard .tasksStar {
+  font-size: 20px;
+  color: #63b3ed;
+  margin-left: 10px;
+}
+
+.weatherCard .weatherName {
+  margin-left: 10px;
+}
+
+/* Other Cards Specific */
+.farmViewCard, .soilHealthCard, .weatherCard, .Reminder, .AgroIntel {
+  background-color: var(--color-background);
+  display: flex;
+  flex-wrap:wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 600px;
+  }
+}
