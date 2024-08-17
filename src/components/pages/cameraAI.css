@@ -1,95 +1,75 @@
-
 .container2 {
-    position: relative;
-    left: 30%;
-    height: 300px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    gap: 5px;
-    background-color: rgba(0, 110, 255, 0.041);
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
 }
 
-.form {
-  background-color: var(--color-background);
-  box-shadow:  0 2rem 3rem var(--color-light);
-  border: 1px solid rgb(159, 159, 160);
-  border-radius: 20px;
-  padding: 2rem .7rem .7rem .7rem;
-  text-align: center;
-  font-size: 1.125rem;
-  max-width: 320px;
-  height: 500px;
-  position: absolute;
-  left: 45%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.container2 .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-title {
-  color: #928c8c;
+.container2 .form-title {
+  color: #bb86fc;
   font-size: 1.8rem;
-  font-weight: 500;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.form-paragraph {
-  margin-top: 10px;
-  font-size: 0.9375rem;
-  color: rgb(105, 105, 105);
-}
-
-.drop-container {
-  background-color:  var(--color-background);
+.container2 .drop-container {
   position: relative;
   display: flex;
   gap: 10px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  margin-top: 2.1875rem;
+  height: 200px;
+  padding: 20px;
   border-radius: 10px;
-  border: 2px dashed rgb(171, 202, 255);
-  color: #444;
+  border: 2px dashed #6200ee;
+  color: #bb86fc;
   cursor: pointer;
   transition: background .2s ease-in-out, border .2s ease-in-out;
+  width: 100%;
+  max-width: 400px;
 }
 
-.drop-container:hover {
-  background: rgba(0, 140, 255, 0.164);
-  border-color: rgba(17, 17, 17, 0.616);
+.container2 .drop-container:hover {
+  background: #2d2d2d;
+  border-color: #bb86fc;
 }
 
-.drop-container:hover .drop-title {
-  color: #222;
+.container2 .drop-container:hover .drop-title {
+  color: #03dac6;
 }
 
-.drop-title {
-  color: #444;
+.container2 .drop-title {
+  color: #bb86fc;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
   transition: color .2s ease-in-out;
 }
 
-#file-input {
+.container2 #file-input {
   width: 350px;
   max-width: 100%;
-  color: #444;
+  color: #e0e0e0;
   padding: 2px;
-  background: #fff;
+  background: #2d2d2d;
   border-radius: 10px;
-  border: 1px solid rgba(8, 8, 8, 0.288);
+  border: 1px solid #6200ee;
 }
 
-#file-input::file-selector-button {
+.container2 #file-input::file-selector-button {
   margin-right: 20px;
   border: none;
-  background: #084cdf;
+  background: #6200ee;
   padding: 10px 20px;
   border-radius: 10px;
   color: #fff;
@@ -97,6 +77,73 @@
   transition: background .2s ease-in-out;
 }
 
-#file-input::file-selector-button:hover {
-  background: #0d45a5;
+.container2 #file-input::file-selector-button:hover {
+  background: #3700b3;
+}
+
+.container2 .identify-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #1e1e1e;
+  background-color: #03dac6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container2 .identify-button:hover {
+  background-color: #018786;
+}
+
+.container2 .identify-button:disabled {
+  background-color: #4f4f4f;
+  color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.container2 .error {
+  color: #cf6679;
+  margin-top: 1rem;
+}
+
+.container2 .result {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.container2 .result h3 {
+  color: #bb86fc;
+  margin-bottom: 1rem;
+}
+
+.container2 .result p {
+  color: #03dac6;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.container2 .result ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.container2 .result li {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.container2 .result li::before {
+  content: "•";
+  color: #bb86fc;
+  position: absolute;
+  left: 0;
 }

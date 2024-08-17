@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import "./cameraAI.css";
 
 // Initialize the Gemini API
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
@@ -25,7 +26,7 @@ const CameraAssistance = () => {
     setError(null);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
       const prompt =
         "Identify this plant and provide management tips for best crop yields. Format the response as follows: Plant Name: [name], Management Tips: [tip1], [tip2], [tip3]";
@@ -79,26 +80,40 @@ const CameraAssistance = () => {
   }
 
   return (
-    <div className="camera-assistance">
-      <h2>Crop Identification and Management</h2>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-      <button onClick={identifyPlant} disabled={!image || loading}>
-        {loading ? "Identifying..." : "Identify Plant"}
-      </button>
-
-      {error && <p className="error">{error}</p>}
-
-      {result && (
-        <div className="result">
-          <h3>Identified Plant: {result.plantName}</h3>
-          <p>Management Tips:</p>
-          <ul>
-            {result.managementTips.map((tip, index) => (
-              <li key={index}>{tip}</li>
-            ))}
-          </ul>
+    <div className="container2">
+      <div className="form">
+        <h2 className="form-title">Crop Identification and Management</h2>
+        <div className="drop-container">
+          <input
+            id="file-input"
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+          <label htmlFor="file-input" className="drop-title">
+            Upload Crop Image
+          </label>
         </div>
-      )}
+        <button
+          onClick={identifyPlant}
+          disabled={!image || loading}
+          className="identify-button"
+        >
+          {loading ? "Identifying..." : "Identify Plant"}
+        </button>
+        {error && <p className="error">{error}</p>}
+        {result && (
+          <div className="result">
+            <h3>Identified Plant: {result.plantName}</h3>
+            <p>Management Tips:</p>
+            <ul>
+              {result.managementTips.map((tip, index) => (
+                <li key={index}>{tip}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
