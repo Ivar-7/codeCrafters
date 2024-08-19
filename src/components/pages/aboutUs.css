@@ -1,6 +1,5 @@
-
 .about-container {
-    background-color:  var(--color-background);
+    background-color: var(--color-background);
     width: 80%;
     max-width: 800px;
     padding: 30px;
@@ -8,19 +7,22 @@
     border-radius: 10px;
     position: relative;
     left: 15%;
-    margin-right: 200px;
-    margin-top: 20px;
-    top: 40px;
+    margin-right: 100px;
+    margin-top: 10px;
+    top: 25px;
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .about-container h1 {
     text-align: center;
-    color: #e2d6d6;
+    color: var(--color-dark);
 }
 
 .about-container p {
-    color: #dbcfcf;
+    color: var(--color-dark);
     line-height: 1.6;
     margin-top: 20px;
 }
@@ -37,7 +39,7 @@
 .tooltip-container .tooltip {
     display: none;
     background-color: #333;
-    color: white;
+    color: var(--color-dark);
     padding: 5px 10px;
     border-radius: 5px;
     position: absolute;
@@ -52,13 +54,50 @@
 
 .tooltip-container .text {
     margin-left: 10px;
-    color: #ddd8d8;
+    color: var(--color-dark);
 }
 
-.tooltip-container svg {
-    width: 20px;
-    height: 20px;
-}
 .about-container:hover {
     transform: translateY(-10px);
+}
+
+.card-container {
+    margin-top: 20px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color-background);
+    border: 1px solid rgba(255, 255, 255, 0.089);
+    box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.contact-card {
+    background-color: #f0f8ff;
+}
+
+.contact-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    color: var(--color-dark);
+    text-align: center;
+}
+
+.contact-info {
+    font-size: 1em;
+    color: var(--color-dark);
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
 }

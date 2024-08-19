@@ -5,6 +5,7 @@
     padding: 20px;
     max-width: 1200px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
@@ -41,6 +42,7 @@
 .card h3 {
     margin: 0 0 15px;
     font-size: 1.5em;
+    color:var(--color-dark);
 }
 
 .card p {
