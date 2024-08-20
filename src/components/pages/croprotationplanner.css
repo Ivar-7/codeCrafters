@@ -1,0 +1,74 @@
+/* Container styling */
+.container4 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color:var(--color-background);
+    border-radius: 8px;
+    box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* Heading styling */
+.container4 h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color:var(--color-dark);
+    text-align: center;
+}
+
+/* Form styling */
+#rotation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#rotation-form label {
+    font-size: 1em;
+    color:var(--color-dark);
+}
+
+#rotation-form input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    background-color:var(--color-background);
+}
+
+#rotation-form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color:var(--color-dark);
+    background-color:var(--color-background);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+#rotation-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Rotation plan styling */
+#rotation-plan {
+    margin-top: 20px;
+}
+
+#rotation-plan h2 {
+    font-size: 1.5em;
+    color: var(--color-dark);
+}
+
+#plan-list {
+    list-style: none;
+    padding: 0;
+}
+
+#plan-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}

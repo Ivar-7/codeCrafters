@@ -13,6 +13,7 @@ import CropManagement from "./components/pages/CropManagement";
 import Farm from "./components/pages/Farm";
 import Settings from "./components/pages/Settings";
 import Support from "./components/pages/Support";
+import CropRotationPlanner from './components/pages/CropRotationPlanner'; // Import CropRotationPlanner
 
 import "./App.css";
 
@@ -30,11 +31,7 @@ const App = () => {
           </div>
           <div className="main-content">
             <Routes>
-              <Route
-                exact
-                path="/"
-                element={<Dashboard toggleSidebar={toggleSidebar} />}
-              />
+              <Route exact path="/" element={<Dashboard toggleSidebar={toggleSidebar} />} />
               <Route exact path="/chatbot" element={<ChatBot />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
@@ -42,21 +39,10 @@ const App = () => {
               <Route exact path="/farm" element={<Farm />} />
               <Route exact path="/settings" element={<Settings />} />
               <Route exact path="/support" element={<Support />} />
-              <Route
-                exact
-                path="/camera-assistance"
-                element={<CameraAssistance />}
-              />
-              <Route
-                exact
-                path="/analytics-reports"
-                element={<AnalyticsReports />}
-              />
-              <Route
-                exact
-                path="/crop-management"
-                element={<CropManagement />}
-              />
+              <Route exact path="/camera-assistance" element={<CameraAssistance />} />
+              <Route exact path="/analytics-reports" element={<AnalyticsReports />} />
+              <Route exact path="/crop-management" element={<CropManagement />} />
+              <Route exact path="/crop-rotation-planner" element={<CropRotationPlanner />} /> {/* Ensure this path is correct */}
             </Routes>
           </div>
         </div>

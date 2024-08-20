@@ -81,8 +81,9 @@ const CameraAssistance = () => {
 
   return (
     <div className="container2">
+      <h1>Camera Assist</h1>
       <div className="form">
-        <h2 className="form-title">Crop Identification and Management</h2>
+        <h2 className="form-title">Plant Identification and Management</h2>
         <div className="drop-container">
           <input
             id="file-input"
