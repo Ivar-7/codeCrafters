@@ -5,6 +5,7 @@ const Support = () => {
   return (
     <>
       <div className="plans-container">
+        <h1>Billing</h1>
         <div className="plan">
           <div className="inner">
             <span className="pricing">

@@ -2,10 +2,10 @@
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #1e1e1e;
+  background-color: var(--color-white);
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  color: #e0e0e0;
+  color:var(--color-dark-variant);
 }
 
 .container2 .form {
@@ -15,7 +15,7 @@
 }
 
 .container2 .form-title {
-  color: #bb86fc;
+  color:var(--color-dark-variant);
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -32,7 +32,7 @@
   padding: 20px;
   border-radius: 10px;
   border: 2px dashed #6200ee;
-  color: #bb86fc;
+  color:var(--color-dark-variant);
   cursor: pointer;
   transition: background .2s ease-in-out, border .2s ease-in-out;
   width: 100%;
@@ -40,16 +40,16 @@
 }
 
 .container2 .drop-container:hover {
-  background: #2d2d2d;
+  background: var(--color-white);
   border-color: #bb86fc;
 }
 
 .container2 .drop-container:hover .drop-title {
-  color: #03dac6;
+  color:var(--color-dark-variant);
 }
 
 .container2 .drop-title {
-  color: #bb86fc;
+  color: var(--color-dark-variant);
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -59,7 +59,7 @@
 .container2 #file-input {
   width: 350px;
   max-width: 100%;
-  color: #e0e0e0;
+  color:var(--color-dark-variant);
   padding: 2px;
   background: #2d2d2d;
   border-radius: 10px;
@@ -69,24 +69,24 @@
 .container2 #file-input::file-selector-button {
   margin-right: 20px;
   border: none;
-  background: #6200ee;
+  background:var(--color-white);
   padding: 10px 20px;
   border-radius: 10px;
-  color: #fff;
+  color:var(--color-dark-variant)v;
   cursor: pointer;
   transition: background .2s ease-in-out;
 }
 
 .container2 #file-input::file-selector-button:hover {
-  background: #3700b3;
+  background: #21075e;
 }
 
 .container2 .identify-button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  color: #1e1e1e;
-  background-color: #03dac6;
+  color:var(--color-dark-variant);
+  background-color:var(--color-white);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -99,19 +99,19 @@
 
 .container2 .identify-button:disabled {
   background-color: #4f4f4f;
-  color: #a0a0a0;
+  color:var(--color-dark-variant);
   cursor: not-allowed;
 }
 
 .container2 .error {
-  color: #cf6679;
+  color:var(--color-dark-variant);
   margin-top: 1rem;
 }
 
 .container2 .result {
   margin-top: 2rem;
   padding: 1rem;
-  background-color: #2d2d2d;
+  background-color:var(--color-white);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -119,12 +119,12 @@
 }
 
 .container2 .result h3 {
-  color: #bb86fc;
+  color:var(--color-dark-variant);
   margin-bottom: 1rem;
 }
 
 .container2 .result p {
-  color: #03dac6;
+  color:var(--color-dark-variant);
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -135,7 +135,7 @@
 }
 
 .container2 .result li {
-  color: #e0e0e0;
+  color:var(--color-dark-variant);
   margin-bottom: 0.5rem;
   padding-left: 1rem;
   position: relative;
@@ -143,7 +143,7 @@
 
 .container2 .result li::before {
   content: "•";
-  color: #bb86fc;
+  color:var(--color-dark-variant);
   position: absolute;
   left: 0;
 }

@@ -7,7 +7,11 @@
     padding: 20px;
     margin: 0 auto; /* Center container */
 }
-
+h1{
+    width: 100%;
+    color:var(--color-dark);
+    text-align: center;
+}
 /* Card styling */
 .plan {
     border-radius: var(--border-radius-2);

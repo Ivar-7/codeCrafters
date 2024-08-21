@@ -131,11 +131,21 @@ b{
 }
 
 .main-content {
-    flex-grow: 1; /* Allow main content to grow and fill the available space */
+    margin-left: 250px;
+  padding: 20px;
+  transition: margin-left 0.3s ease;  /* Allow main content to grow and fill the available space */
 }
 
 aside{
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-y: auto;
+
 }
 
 aside .toggle{
@@ -628,6 +638,26 @@ main .crop-management a{
         display: none;
         animation: showMenu 0.4s ease forwards;
     }
+    .main-content {
+        margin-left: 0; /* Content takes full width when sidebar is hidden */
+        padding-top: 60px;
+        justify-content: center;
+        
+      }
+      .open-sidebar-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background-color:  var(--color-white);
+        color: var(--color-primary);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        display: inline-block;
+        width: 15%;
+      }
+    
 
     @keyframes showMenu {
        to{

@@ -6,6 +6,11 @@
   justify-content: center;
   padding: 1px;
 }
+h1{
+  width: 100%;
+  color:var(--color-dark);
+  text-align: center;
+}
 .card {
   display: flex;
   flex-direction: column;
