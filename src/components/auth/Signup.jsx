@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, db } from "../../config/firebaseCon";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db, googleProvider, facebookProvider } from "../../config/firebaseCon"; // Added providers
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth"; // Added signInWithPopup
 import { doc, setDoc } from "firebase/firestore";
 import { DashboardContext } from "../api/FirebaseApi";
 
@@ -23,20 +23,40 @@ const Signup = () => {
       );
       await setDoc(doc(db, "users", userCredential.user.uid), {
         email: userCredential.user.email,
-        // username: "",
-        // profilePicture: "",
-        // createdAt: serverTimestamp(),
       });
-      //   console.log(
-      //     "Account created and saved to Firestore:",
-      //     userCredential.user
-      //   );
       setUser(userCredential.user);
       navigate("/");
     } catch (error) {
       setError(error.message);
-      console.log(error);
       console.error("Error signing up and saving user:", error.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      await setDoc(doc(db, "users", result.user.uid), {
+        email: result.user.email,
+      });
+      setUser(result.user);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+      console.error("Google Sign In Error:", error.message);
+    }
+  };
+
+  const handleFacebookSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      await setDoc(doc(db, "users", result.user.uid), {
+        email: result.user.email,
+      });
+      setUser(result.user);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+      console.error("Facebook Sign In Error:", error.message);
     }
   };
 
@@ -65,10 +85,10 @@ const Signup = () => {
         />
         <button type="submit">Sign Up</button>
         <div className="social">
-          <div className="go">
+          <div className="go" onClick={handleGoogleSignIn}>
             <i className="fab fa-google"></i> Google
           </div>
-          <div className="fb">
+          <div className="fb" onClick={handleFacebookSignIn}>
             <i className="fab fa-facebook"></i> Facebook
           </div>
         </div>

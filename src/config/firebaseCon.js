@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth"; // Added
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -24,5 +24,9 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
 
-export { db, auth, storage };
+// Initialize Google and Facebook Auth Providers
+const googleProvider = new GoogleAuthProvider();  // Added
+const facebookProvider = new FacebookAuthProvider();  // Added
+
+export { db, auth, storage, googleProvider, facebookProvider }; // Updated
 export default app;

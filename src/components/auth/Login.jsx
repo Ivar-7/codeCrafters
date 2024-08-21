@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebaseCon";
-import { signInWithEmailAndPassword } from "firebase/auth"; // Import the function
+import { auth, googleProvider, facebookProvider } from "../../config/firebaseCon";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"; // Added signInWithPopup
 import { DashboardContext } from "../api/FirebaseApi";
 
 const Login = () => {
@@ -21,12 +21,32 @@ const Login = () => {
         password
       );
       setUser(userCredential.user);
-      // console.log("Logged in user:", userCredential.user);
       navigate("/");
     } catch (error) {
       setError(error.message);
       console.error("Error logging in:", error.message);
-      // Here, you could set an error message to display to the user
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      setUser(result.user);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+      console.error("Google Sign In Error:", error.message);
+    }
+  };
+
+  const handleFacebookSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      setUser(result.user);
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+      console.error("Facebook Sign In Error:", error.message);
     }
   };
 
@@ -55,7 +75,12 @@ const Login = () => {
         />
         <button type="submit">Log In</button>
         <div className="social">
-          {/* Social login functionality can be added here */}
+          <div className="go" onClick={handleGoogleSignIn}>
+            <i className="fab fa-google"></i> Google
+          </div>
+          <div className="fb" onClick={handleFacebookSignIn}>
+            <i className="fab fa-facebook"></i> Facebook
+          </div>
         </div>
         <p className="redirect-to-signup">
           Don't have an account? <Link to="/signup">Sign Up</Link>
