@@ -14,8 +14,8 @@ import CropManagement from "./components/pages/CropManagement";
 import Farm from "./components/pages/Farm";
 import Settings from "./components/pages/Settings";
 import Support from "./components/pages/Support";
-import CropRotationPlanner from './components/pages/CropRotationPlanner'; 
-import PrivateRoute from './components/auth/PrivateRoute';
+import CropRotationPlanner from './components/pages/CropRotationPlanner'; // Import CropRotationPlanner
+import PrivateRoute from './components/auth/PrivateRoute'; // Import PrivateRoute
 
 import "./App.css";
 
