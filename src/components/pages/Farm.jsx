@@ -1,7 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./farm.css";
 
 const Farm = () => {
+  const [weatherData, setWeatherData] = useState({
+    currentWeather: "Loading...",
+    temperature: "Loading...",
+    rainfall: "Loading...",
+    forecast: "Loading...",
+    climateZone: "Loading...",
+    windSpeed: "Loading...",
+    humidity: "Loading...",
+  });
+
+  useEffect(() => {
+    const fetchWeatherData = async (lat, lon) => {
+      try {
+        const apiKey = import.meta.env.VITE_WEATHER_API_KEY; // Replace with your OpenWeatherMap API key
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${apiKey}`
+        );
+
+        const data = response.data;
+        setWeatherData({
+          currentWeather: data.current.weather[0].description,
+          temperature: `${data.current.temp}°C`,
+          rainfall: `${data.daily[0].rain || 0} mm`,
+          forecast: `${data.daily[0].weather[0].description}`,
+          climateZone: "Tropical", // Placeholder; you may need to determine this differently
+          windSpeed: `${data.current.wind_speed} km/h`,
+          humidity: `${data.current.humidity}%`,
+        });
+      } catch (error) {
+        console.error("Error fetching weather data", error);
+      }
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetchWeatherData(latitude, longitude);
+        },
+        (error) => {
+          console.error("Error getting location", error);
+        }
+      );
+    } else {
+      console.error("Geolocation not supported by this browser");
+    }
+  }, []);
+
   return (
     <div className="container1">
       <div className="headerFm">
@@ -58,7 +107,7 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Current Weather: Sunny</span>
+                <span className="weatherName">Current Weather: {weatherData.currentWeather}</span>
               </span>
               <span className="tasksStar full">
                 <span className="material-icons-sharp">sunny</span>
@@ -69,7 +118,7 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Average Temperature: 25°C</span>
+                <span className="weatherName">Average Temperature: {weatherData.temperature}</span>
               </span>
               <span className="tasksStar half">
                 <span className="material-icons-sharp">thermostat</span>
@@ -80,7 +129,7 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Annual Rainfall: 1200 mm</span>
+                <span className="weatherName">Annual Rainfall: {weatherData.rainfall}</span>
               </span>
               <span className="tasksStar half">
                 <span className="material-icons-sharp">analytics</span>
@@ -91,7 +140,7 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">7-day Forecast: Mostly Sunny</span>
+                <span className="weatherName">7-day Forecast: {weatherData.forecast}</span>
               </span>
               <span className="tasksStar half">
                 <span className="material-icons-sharp">next_week</span>
@@ -102,7 +151,7 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Climate Zone: Tropical</span>
+                <span className="weatherName">Climate Zone: {weatherData.climateZone}</span>
               </span>
               <span className="tasksStar full">
                 <span className="material-icons-sharp">travel_explore</span>
@@ -113,19 +162,18 @@ const Farm = () => {
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Wind Speed: 15 km/h</span>
+                <span className="weatherName">Wind Speed: {weatherData.windSpeed}</span>
               </span>
               <span className="tasksStar half">
                 <span className="material-icons-sharp">speed</span>
               </span>
-              <span className="tasksStar full"></span>
             </li>
             <li>
               <span className="weatherIconName">
                 <span className="tasksIcon done">
                   <span className="material-icons-sharp">check</span>
                 </span>
-                <span className="weatherName">Humidity Level: 60%</span>
+                <span className="weatherName">Humidity Level: {weatherData.humidity}</span>
               </span>
               <span className="tasksStar half">
                 <span className="material-icons-sharp">water_drop</span>
