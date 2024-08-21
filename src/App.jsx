@@ -33,6 +33,7 @@ const App = () => {
           </div>
           <div className="main-content">
             <Routes>
+
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<PrivateRoute element={<Dashboard toggleSidebar={toggleSidebar} />} />} />
@@ -46,6 +47,18 @@ const App = () => {
               <Route path="/crop-management" element={<PrivateRoute element={<CropManagement />} />} />
               <Route path="/crop-rotation-planner" element={<PrivateRoute element={<CropRotationPlanner />} />} />
               <Route path="*" element={<Navigate to="/signup" />} />
+              <Route exact path="/" element={<Dashboard toggleSidebar={toggleSidebar} />} />
+              <Route exact path="/chatbot" element={<ChatBot />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/about-us" element={<AboutUs />} />
+              <Route exact path="/farm" element={<Farm />} />
+              <Route exact path="/settings" element={<Settings />} />
+              <Route exact path="/support" element={<Support />} />
+              <Route exact path="/camera-assistance" element={<CameraAssistance />} />
+              <Route exact path="/analytics-reports" element={<AnalyticsReports />} />
+              <Route exact path="/crop-management" element={<CropManagement />} />
+              <Route exact path="/crop-rotation-planner" element={<CropRotationPlanner />} /> {/* Ensure this path is correct */}
             </Routes>
           </div>
         </div>
