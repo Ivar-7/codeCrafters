@@ -35,7 +35,10 @@
   padding: 10px;
   transition-duration: 1s;
   }
-  
+   
+  .send-btn{
+    background-color:var(--color-white) ;
+  }
   .chat-title:hover {
     color:#268656;
     transition: 0.5s ease-in-out;
@@ -274,4 +277,52 @@
     text-align: center;
     font-size: 14px;
   }
+  @media (max-width: 768px) {
+    .chat-container {
+        padding: 5px;
+        width: 80%;
+    }
+
+    .input-alt {
+      width: 90%;
+    }
+    .chat-title {
+        font-size: 1.5rem;
+    }
+
+    .chat-box {
+        max-height: 300px;
+    }
+
+    .user-message, .bot-message {
+        font-size: 0.875rem;
+        padding: 8px;
+    }
+
+    .message-input {
+        font-size: 0.875rem;
+        padding: 8px;
+    }
+
+    .send-btn {
+        font-size: 0.875rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-title {
+        font-size: 1.25rem;
+    }
+
+    .message-input {
+        font-size: 0.75rem;
+        padding: 6px;
+    }
+
+    .send-btn {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
   

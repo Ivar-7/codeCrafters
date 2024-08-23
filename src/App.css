@@ -627,11 +627,14 @@ main .crop-management a{
         padding: 0 var(--padding-1);
     }
 
+    .nav{
+        width: 50px;
+    }
     aside{
         position: fixed;
         background-color: var(--color-white);
         width: 15rem;
-        z-index: 3;
+        z-index: 1000;
         box-shadow: 1rem 3rem 4rem var(--color-light);
         height: 100vh;
         left: -100%;
@@ -681,6 +684,10 @@ main .crop-management a{
         width: 100%;
         height: 3.4rem;
     }
+    aside .sidebar {
+        z-index: 1000;
+        
+    }
 
     aside .sidebar a:last-child{
         position: absolute;
@@ -719,16 +726,19 @@ main .crop-management a{
 
     .right-section .nav{
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 9px;
+        left: 30px;
+        margin-left: 10px;
+        justify-content: center;
         align-items: center;
         background-color: var(--color-white);
         padding: 0 var(--padding-1);
         height: 4.6rem;
-        width: 100%;
+        width: 80%;
         z-index: 2;
         box-shadow: 0 1rem 1rem var(--color-light);
         margin: 0;
+        border-radius: 10px;
     }
 
     .right-section .nav .dark-mode{
@@ -747,7 +757,8 @@ main .crop-management a{
         cursor: pointer;
         color: var(--color-dark);
         position: absolute;
-        left: 1rem;
+        left: 20px;
+
     }
 
     .right-section .nav button span{

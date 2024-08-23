@@ -56,7 +56,6 @@ const Farm = () => {
       <div className="headerFm">
         <h1>Farm Management</h1>
       </div>
-
       <div className="farmViewCard card">
         <div className="projectTop">
           <h2>Farm Overview</h2>
@@ -70,7 +69,7 @@ const Farm = () => {
           </ul>
         </div>
       </div>
-
+      
       <div className="soilHealthCard card">
         <div className="projectTop">
           <h2>Soil Health</h2>

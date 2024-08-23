@@ -101,3 +101,48 @@
 .contact-info a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .text {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 10px;
+        left: 5px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .text {
+        font-size: 0.875rem;
+    }
+
+    p {
+        font-size: 0.75rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
