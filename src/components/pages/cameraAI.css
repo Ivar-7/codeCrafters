@@ -147,3 +147,39 @@
   position: absolute;
   left: 0;
 }
+@media (max-width: 768px) {
+  .container2 {
+      padding: 2px;
+      padding-top: 20px;
+      width: 80%;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .form {
+      padding: 15px;
+  }
+
+  .form-title {
+      font-size: 1.25rem;
+  }
+
+  .drop-title {
+      font-size: 0.875rem;
+  }
+
+  .identify-button {
+      font-size: 0.875rem;
+      padding: 8px 16px;
+  }
+
+  .error {
+      font-size: 0.75rem;
+  }
+
+  .result h3 {
+      font-size: 1rem;
+  }
+}

@@ -1,32 +1,26 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth"; // Added
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
+  apiKey: "AIzaSyB02W4baGI6L5WY5TmFzwK3z9YaSKgupiI",
+  authDomain: "codecrafters-51c8d.firebaseapp.com",
+  projectId: "codecrafters-51c8d",
+  storageBucket: "codecrafters-51c8d.appspot.com",
+  messagingSenderId: "655520304936",
+  appId: "655520304936:web:e04cf4164877c224620a1d",
+  measurementId: "G-STW3KGQ42K",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(app); // Make sure to import `getAnalytics` from 'firebase/analytics'
 const db = getFirestore(app);
 const auth = getAuth(app);
 const storage = getStorage(app);
 
-// Initialize Google and Facebook Auth Providers
-const googleProvider = new GoogleAuthProvider();  // Added
-const facebookProvider = new FacebookAuthProvider();  // Added
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
-export { db, auth, storage, googleProvider, facebookProvider }; // Updated
-export default app;
+export { app, db, auth, storage, googleProvider, facebookProvider };

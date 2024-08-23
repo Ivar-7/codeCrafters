@@ -1,16 +1,15 @@
 .card-container {
     display: flex;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
 .card {
     background: mediumturquoise;
-    color: #fff;
+    color:var(--color-dark);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -21,6 +20,8 @@
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease;
+    max-width: 100%; /* Ensure card does not exceed container width */
+    overflow: hidden; /* Hide overflow content */
 }
 
 .card:hover {
@@ -28,39 +29,108 @@
 }
 
 .card.large {
-    height: 450px;
-}
-
-.card.medium {
-    height: 400px;
-}
-
-.card.small {
-    height: 350px;
+    height: auto; /* Remove fixed height */
 }
 
 .card h3 {
     margin: 0 0 15px;
-    font-size: 1.5em;
-    color:var(--color-dark);
+    font-size: 1.2em; /* Adjust font size for responsiveness */
+    color: var(--color-dark);
 }
 
 .card p {
-    font-size: 1em;
+    font-size: 0.9em; /* Adjust font size for responsiveness */
     margin-top: 15px;
 }
 
 canvas {
-    max-width: 100%;
+    width: 100%; /* Ensure canvas fits within the card */
     max-height: 60%;
 }
 
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    box-shadow: var(--box-shadow);
+    border-radius: 7px;
+    padding: 5px; /* Space between items */
+}
+.input-group{
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    color:var(--color-dark);
+}
+ .selector{
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    color:var(--color-dark);
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: var(--color-white);
+}
+
+.add {
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    color:var(--color-dark);
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+.update {
+    position: absolute;
+    top: 120px;
+    height: 35px;
+    justify-content: center;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    color:var(--color-dark);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-group button:hover {
+    background-color: #4e5761;
+}
+
 @media (max-width: 768px) {
-    .card h3 {
-        font-size: 1.2em;
+    .card {
+        padding: 10px; /* Adjust padding for smaller screens */
     }
 
-    .card p {
-        font-size: 0.9em;
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        width: 110px; /* Stretch items to fit container width */
+    }
+    .update{
+        position: absolute;
+        top: 150px;
+    }
+    .input-group  input {
+      width: 100%;
+    }
+
+    .input-group button {
+        width: 50%; /* Full-width buttons */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space below buttons */
     }
 }
