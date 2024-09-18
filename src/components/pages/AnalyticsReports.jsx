@@ -15,7 +15,7 @@ const AnalyticsReport = () => {
     const [marketPriceData, setMarketPriceData] = useState({});
     const [postHarvestLossesData, setPostHarvestLossesData] = useState({});
     const [cropRotationData, setCropRotationData] = useState({});
-    const [sustainabilityData, setSustainabilityData] = useState({});
+    const [marketingData, setMarketingData] = useState({});
 
     // State variables for selected categories and inputs
     const [selectedLaborType, setSelectedLaborType] = useState('Planting');
@@ -28,8 +28,8 @@ const AnalyticsReport = () => {
     const [selectedLossType, setSelectedLossType] = useState('Storage Losses');
     const [cropRotationCategory, setCropRotationCategory] = useState('Corn to Soybean');
     const [cropRotationValue, setCropRotationValue] = useState('');
-    const [sustainabilityCategory, setSustainabilityCategory] = useState('Soil Conservation');
-    const [sustainabilityValue, setSustainabilityValue] = useState('');
+    const [marketingCategory, setMarketingCategory] = useState('Soil Conservation');
+    const [marketingValue, setMarketingValue] = useState('');
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -53,7 +53,7 @@ const AnalyticsReport = () => {
                 setMarketPriceData(data.marketPrices || {});
                 setPostHarvestLossesData(data.postHarvestLosses || {});
                 setCropRotationData(data.cropRotation || {});
-                setSustainabilityData(data.sustainability || {});
+                setMarketingData(data.marketing || {});
             } else {
                 console.log('No analytics report found for this user.');
                 setError('No analytics report found.');
@@ -112,7 +112,7 @@ const AnalyticsReport = () => {
         
         const postHarvestLossesChartData = convertToChartData(postHarvestLossesData, 'Post Harvest Losses', 'kg');
         const cropRotationChartData = convertToChartData(cropRotationData, 'Crop Rotation Yield', 'kg');
-        const sustainabilityChartData = convertToChartData(sustainabilityData, 'Sustainability Metrics', 'score');
+        const marketingChartData = convertToChartData(marketingData, 'Marketing Metrics', 'Kg Harvested');
 
         const barChartOptions = {
             responsive: true,
@@ -129,12 +129,12 @@ const AnalyticsReport = () => {
         createChart('marketPriceBarChart', marketPriceChartData, barChartOptions);
         createChart('postHarvestLossesBarChart', postHarvestLossesChartData, barChartOptions);
         createChart('cropRotationBarChart', cropRotationChartData, barChartOptions);
-        createChart('sustainabilityBarChart', sustainabilityChartData, barChartOptions);
+        createChart('marketingBarChart', marketingChartData, barChartOptions);
 
         return () => {
             Object.values(chartsRef.current).forEach(chart => chart.destroy());
         };
-    }, [user, laborEfficiencyData, machineryUtilizationData, marketPriceData, postHarvestLossesData, cropRotationData, sustainabilityData, selectedCrop]);
+    }, [user, laborEfficiencyData, machineryUtilizationData, marketPriceData, postHarvestLossesData, cropRotationData, marketingData, selectedCrop]);
 
     // Save user's analytics data to Firestore
     const saveUserAnalyticsData = async (data) => {
@@ -158,7 +158,7 @@ const AnalyticsReport = () => {
             machineryUtilization: categoryName === 'machineryUtilization' ? updatedData : machineryUtilizationData,
             postHarvestLosses: categoryName === 'postHarvestLosses' ? updatedData : postHarvestLossesData,
             cropRotation: categoryName === 'cropRotation' ? updatedData : cropRotationData,
-            sustainability: categoryName === 'sustainability' ? updatedData : sustainabilityData,
+            marketing: categoryName === 'marketing' ? updatedData : marketingData,
             marketPrices: categoryName === 'marketPrices' ? updatedData : marketPriceData,
         });
     };
@@ -173,7 +173,7 @@ const AnalyticsReport = () => {
                 machineryUtilization: categoryName === 'machineryUtilization' ? updatedData : machineryUtilizationData,
                 postHarvestLosses: categoryName === 'postHarvestLosses' ? updatedData : postHarvestLossesData,
                 cropRotation: categoryName === 'cropRotation' ? updatedData : cropRotationData,
-                sustainability: categoryName === 'sustainability' ? updatedData : sustainabilityData,
+                marketing: categoryName === 'marketing' ? updatedData : marketingData,
                 marketPrices: marketPriceData,
             });
             return updatedData;
@@ -453,51 +453,41 @@ const AnalyticsReport = () => {
                 />
             </div>
 
-            {/* Sustainability Chart */}
+            {/* Marketing Chart */}
             <div className="card medium">
-                <h2>Sustainability</h2>
-                <canvas id="sustainabilityBarChart"></canvas>
+                <h2>Marketing</h2>
+                <canvas id="marketingBarChart"></canvas>
                 <select
                     className='selector' 
-                    value={sustainabilityCategory} 
-                    onChange={(e) => setSustainabilityCategory(e.target.value)}
+                    value={marketingCategory} 
+                    onChange={(e) => setMarketingCategory(e.target.value)}
                 >
-    <option className="selector" value="Soil Conservation">Soil Conservation</option>
-    <option className="selector" value="Water Management">Water Management</option>
-    <option className="selector" value="Biodiversity">Biodiversity</option>
-    <option className="selector" value="Crop Residue Management">Crop Residue Management</option>
-    <option className="selector" value="Energy Efficiency">Energy Efficiency</option>
-    <option className="selector" value="Organic Farming Practices">Organic Farming Practices</option>
-    <option className="selector" value="Integrated Pest Management">Integrated Pest Management</option>
-    <option className="selector" value="Carbon Sequestration">Carbon Sequestration</option>
-    <option className="selector" value="Agroforestry">Agroforestry</option>
-    <option className="selector" value="Cover Cropping">Cover Cropping</option>
-    <option className="selector" value="No-Till Farming">No-Till Farming</option>
-    <option className="selector" value="Renewable Energy Use">Renewable Energy Use</option>
-    <option className="selector" value="Efficient Irrigation">Efficient Irrigation</option>
-    <option className="selector" value="Reduced Chemical Inputs">Reduced Chemical Inputs</option>
-    <option className="selector" value="Conservation Tillage">Conservation Tillage</option>
-    <option className="selector" value="Water Conservation">Water Conservation</option>
-    <option className="selector" value="Greenhouse Gas Reduction">Greenhouse Gas Reduction</option>
-    <option className="selector" value="Wildlife Habitat Protection">Wildlife Habitat Protection</option>
-    <option className="selector" value="Composting">Composting</option>
-    <option className="selector" value="Permaculture">Permaculture</option>
-    <option className="selector" value="Pollinator Support">Pollinator Support</option>
-    <option className="selector" value="Sustainable Forestry">Sustainable Forestry</option>
-    <option className="selector" value="Precision Agriculture">Precision Agriculture</option>
-    <option className="selector" value="Water Recycling">Water Recycling</option>
-    <option className="selector" value="Soil Health Monitoring">Soil Health Monitoring</option>
+                    <option  className="selector" value="Corn">Corn</option>
+                    <option  className="selector" value="Wheat">Wheat</option>
+                    <option  className="selector" value="Soybeans">Soybeans</option>
+                    <option  className="selector" value="Rice">Rice</option>
+                    <option  className="selector" value="Cotton">Cotton</option>
+                    <option  className="selector" value="Barley">Barley</option>
+                    <option  className="selector" value="Oats">Oats</option>
+                    <option  className="selector" value="Sunflowers">Sunflowers</option>
+                    <option  className="selector" value="Canola">Canola</option>
+                    <option  className="selector" value="Sugarcane">Sugarcane</option>
+                    <option  className="selector" value="Sorghum">Sorghum</option>
+                    <option  className="selector" value="Peanuts">Peanuts</option>
+                    <option  className="selector" value="Potatoes">Potatoes</option>
+                    <option  className="selector" value="Coffee">Coffee</option>
+                    <option  className="selector" value="Cocoa">Cocoa</option>
                     {/* Add other options as needed */}
                 </select>
-                <button className='add' onClick={() => handleAddCategory(sustainabilityData, setSustainabilityData, sustainabilityCategory, sustainabilityValue, 'sustainability')}>
-                    Add Sustainability Data
+                <button className='add' onClick={() => handleAddCategory(marketingData, setMarketingData, marketingCategory, marketingValue, 'marketing')}>
+                    Add Harvest Data
                 </button>
                 <input 
                     className='input-group'
                     type="number" 
-                    value={sustainabilityValue} 
-                    onChange={(e) => setSustainabilityValue(e.target.value)}
-                    placeholder="Score"
+                    value={marketingValue} 
+                    onChange={(e) => setMarketingValue(e.target.value)}
+                    placeholder="Kg Harvested"
                 />
             </div>
         </div>
