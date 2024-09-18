@@ -88,8 +88,8 @@ const Navbar = ({ isSidebarOpen }) => {
             <h3>Billing</h3>
           </Link>
           <Link to="/settings">
-            <span className="material-icons-sharp">settings</span>
-            <h3>Settings</h3>
+            <span className="material-icons-sharp">store</span>
+            <h3>Marketing</h3>
           </Link>
           <Link to="/about-us">
             <span className="material-icons-sharp">question_mark</span>

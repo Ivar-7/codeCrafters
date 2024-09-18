@@ -12,7 +12,7 @@ import AnalyticsReports from "./components/pages/AnalyticsReports";
 import CameraAssistance from "./components/pages/CameraAssistance";
 import CropManagement from "./components/pages/CropManagement";
 import Farm from "./components/pages/Farm";
-import Settings from "./components/pages/Settings";
+import Settings from "./components/pages/marketing";
 import Support from "./components/pages/Support";
 import CropRotationPlanner from './components/pages/CropRotationPlanner'; // Import CropRotationPlanner
 import PrivateRoute from './components/auth/PrivateRoute'; // Import PrivateRoute
