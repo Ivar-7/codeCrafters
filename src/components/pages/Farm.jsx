@@ -234,17 +234,7 @@ const Farm = () => {
         <div className="projectTop">
           <h2>Reminder</h2>
         </div>
-        <ul>
-          <li>Historical Yield Data: 2023: 4.5 tons, 2022: 4.2 tons</li>
-          <li>Production Trends: Increasing</li>
-          <li>Yield Predictions: 5 tons</li>
-          <li>Comparison with Regional Averages: Above average</li>
-          <li>Graphical Representation: [Chart]</li>
-          <li>
-            <strong>Reminder:</strong> Review soil nutrient levels and update
-            fertilization plan before the next growth cycle.
-          </li>
-        </ul>
+       
       </div>
 
       <div className="AgroIntel card">

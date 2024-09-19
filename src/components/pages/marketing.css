@@ -1,0 +1,119 @@
+/* Container for centered content */
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--color-background);
+}
+
+/* Header styling */
+h1 {
+    color: var(--color-dark);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Warnings section */
+.warnings {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #ffdddd;
+    border: 1px solid #ffaaaa;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.warning-message {
+    color: #d8000c;
+    font-weight: bold;
+}
+
+/* Inventory list */
+.inventory-list {
+    width: 100%; /* Adjust to full width for better wrapping */
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: space-between; /* Distribute items evenly */
+    gap: 15px;
+    background-color: var(--color-background);
+    padding: 10px; /* Add some padding for spacing */
+}
+
+/* Inventory item styling */
+.inventory-item {
+    flex: 1 1 calc(33.33% - 30px); /* Three items per row with some margin */
+    background-color: var(--color-background);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.089);
+    cursor: pointer;
+    box-shadow: 0 2rem 3rem var(--color-light);
+    margin: 10px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    transition: transform 0.3s;
+}
+.inventory-item:hover{
+    transform: translateY(-10px);
+}
+
+.inventory-item h2 {
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+.inventory-item p {
+    margin: 10px 0;
+    color: var(--color-dark);
+}
+
+.inventory-item label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.inventory-item input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inventory-item .updatemk {
+    margin-top: 10px;
+}
+
+/* Update button styling */
+.updatemk {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-1);
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 0;
+    width: 65%; /* Full width within the item */
+    padding: 10px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.updatemk:hover {
+    background-color: #3c80c9;
+}
+
+button:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+}
