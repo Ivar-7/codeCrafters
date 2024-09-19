@@ -22,6 +22,7 @@ import "./App.css";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
@@ -36,14 +37,14 @@ const App = () => {
             <Routes>
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/" element={<PrivateRoute element={<Dashboard toggleSidebar={toggleSidebar} />} />} />
+              <Route path="/" element={<PrivateRoute element={<Dashboard toggleSidebar={toggleSidebar} totalPrice={totalPrice} />} />} />
               <Route path="/chatbot" element={<PrivateRoute element={<ChatBot />} />} />
               <Route path="/about-us" element={<PrivateRoute element={<AboutUs />} />} />
               <Route path="/farm" element={<PrivateRoute element={<Farm />} />} />
               <Route path="/settings" element={<PrivateRoute element={<Settings />} />} />
               <Route path="/support" element={<PrivateRoute element={<Support />} />} />
               <Route path="/camera-assistance" element={<PrivateRoute element={<CameraAssistance />} />} />
-              <Route path="/analytics-reports" element={<PrivateRoute element={<AnalyticsReports />} />} />
+              <Route path="/analytics-reports" element={<PrivateRoute element={<AnalyticsReports totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />} />
               <Route path="/crop-management" element={<PrivateRoute element={<CropManagement />} />} />
               <Route path="/crop-rotation-planner" element={<PrivateRoute element={<CropRotationPlanner />} />} />
               

@@ -5,7 +5,7 @@ import { db } from "../../config/firebaseCon";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import "./analyticRport.css";
 
-const AnalyticsReport = () => {
+const AnalyticsReport = ({ totalPrice, setTotalPrice }) => {
   const chartsRef = useRef({});
   const { user } = useAuth();
 
@@ -38,6 +38,11 @@ const AnalyticsReport = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Function to generate a random price
+  const generateRandomPrice = () => {
+    return Math.floor(Math.random() * 100) + 1; // Random price between 1 and 100
+  };
+
   // Fetch user's analytics data from Firestore
   const fetchUserAnalyticsData = async () => {
     if (!user) return;
@@ -58,6 +63,7 @@ const AnalyticsReport = () => {
         setPostHarvestLossesData(data.postHarvestLosses || {});
         setCropRotationData(data.cropRotation || {});
         setMarketingData(data.marketing || {});
+        setTotalPrice(data.totalPrice || 0);
       } else {
         console.log("No analytics report found for this user.");
         setError("No analytics report found.");
@@ -199,6 +205,7 @@ const AnalyticsReport = () => {
       docRef,
       {
         ...data,
+        totalPrice,
       },
       { merge: true }
     );
@@ -212,11 +219,13 @@ const AnalyticsReport = () => {
     value,
     categoryName
   ) => {
+    const randomPrice = generateRandomPrice();
     const updatedData = {
       ...categoryData,
       [category]: parseFloat(value) || 0,
     };
     setData(updatedData);
+    setTotalPrice((prevTotal) => prevTotal + randomPrice);
     saveUserAnalyticsData({
       laborEfficiency:
         categoryName === "laborEfficiency" ? updatedData : laborEfficiencyData,
@@ -241,6 +250,8 @@ const AnalyticsReport = () => {
     setData((prevData) => {
       const updatedData = { ...prevData };
       delete updatedData[category];
+      const randomPrice = generateRandomPrice();
+      setTotalPrice((prevTotal) => Math.max(0, prevTotal - randomPrice));
       saveUserAnalyticsData({
         laborEfficiency:
           categoryName === "laborEfficiency"
@@ -265,20 +276,17 @@ const AnalyticsReport = () => {
 
   // Handle adding a new market price
   const handleAddMarketPrice = () => {
+    const newPrice = parseFloat(marketPrice);
+    const randomPrice = generateRandomPrice();
     setMarketPriceData((prevData) => ({
       ...prevData,
-      [selectedCrop]: [
-        ...(prevData[selectedCrop] || []),
-        parseFloat(marketPrice),
-      ],
+      [selectedCrop]: [...(prevData[selectedCrop] || []), newPrice],
     }));
+    setTotalPrice((prevTotal) => prevTotal + randomPrice);
     saveUserAnalyticsData({
       marketPrices: {
         ...marketPriceData,
-        [selectedCrop]: [
-          ...(marketPriceData[selectedCrop] || []),
-          parseFloat(marketPrice),
-        ],
+        [selectedCrop]: [...(marketPriceData[selectedCrop] || []), newPrice],
       },
     });
     setMarketPrice("");
@@ -286,15 +294,20 @@ const AnalyticsReport = () => {
 
   // Handle removing the last market price
   const handleRemoveMarketPrice = () => {
-    setMarketPriceData((prevData) => ({
-      ...prevData,
-      [selectedCrop]: (prevData[selectedCrop] || []).slice(0, -1),
-    }));
-    saveUserAnalyticsData({
-      marketPrices: {
-        ...marketPriceData,
-        [selectedCrop]: (marketPriceData[selectedCrop] || []).slice(0, -1),
-      },
+    setMarketPriceData((prevData) => {
+      const updatedPrices = (prevData[selectedCrop] || []).slice(0, -1);
+      const randomPrice = generateRandomPrice();
+      setTotalPrice((prevTotal) => Math.max(0, prevTotal - randomPrice));
+      saveUserAnalyticsData({
+        marketPrices: {
+          ...marketPriceData,
+          [selectedCrop]: updatedPrices,
+        },
+      });
+      return {
+        ...prevData,
+        [selectedCrop]: updatedPrices,
+      };
     });
   };
 
