@@ -16,6 +16,7 @@ import Settings from "./components/pages/marketing";
 import Support from "./components/pages/Support";
 import CropRotationPlanner from './components/pages/CropRotationPlanner'; // Import CropRotationPlanner
 import PrivateRoute from './components/auth/PrivateRoute'; // Import PrivateRoute
+import PublicMarketingView from './components/pages/PublicMarketingView'; // Import PublicMarketingView
 
 import "./App.css";
 
@@ -33,7 +34,6 @@ const App = () => {
           </div>
           <div className="main-content">
             <Routes>
-
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<PrivateRoute element={<Dashboard toggleSidebar={toggleSidebar} />} />} />
@@ -46,6 +46,10 @@ const App = () => {
               <Route path="/analytics-reports" element={<PrivateRoute element={<AnalyticsReports />} />} />
               <Route path="/crop-management" element={<PrivateRoute element={<CropManagement />} />} />
               <Route path="/crop-rotation-planner" element={<PrivateRoute element={<CropRotationPlanner />} />} />
+              
+              {/* Public route for marketing view */}
+              <Route path="/products/:userId" element={<PublicMarketingView />} />
+
               <Route path="*" element={<Navigate to="/signup" />} />{/* Ensure this path is correct */}
             </Routes>
           </div>
