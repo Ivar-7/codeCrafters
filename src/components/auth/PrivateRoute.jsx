@@ -14,7 +14,7 @@ const PrivateRoute = ({ element: Component, ...rest }) => {
 
   // If not authenticated, redirect to /signup, preserving the original location
   if (!user) {
-    return <Navigate to="/signup" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // If authenticated, render the component passed in the props

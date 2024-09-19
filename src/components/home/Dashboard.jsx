@@ -23,7 +23,7 @@ const orders = [
   },
 ];
 
-const Dashboard = ({ toggleSidebar }) => {
+const Dashboard = ({ toggleSidebar, totalPrice }) => {
   const { isDarkMode, setIsDarkMode } = useContext(DashboardContext);
   const { currentUser } = useAuth(); // Get current user from useAuth hook
   const [username, setUsername] = useState("Loading...");
